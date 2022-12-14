@@ -9,7 +9,7 @@ const typesDiets = [
   "Gluten Free",
   "Ketogenic",
   "Vegetarian",
-  "Lacto-Ovo-Vegetarian",
+  "Lacto Ovo Vegetarian",
   "Vegan",
   "Pescatarian",
   "Paleo",
@@ -21,13 +21,13 @@ const typesDiets = [
 
 router.get("/", async (req, res) => {
     try {
-        typesDiets.map((type) => {                  //Mapeo 'typesDiets', 'type' representa cada elemento del array
+        typesDiets.map((type) => {                  //Mapeo 'typesDiets', done 'type' representa cada dieta del array
             Diet.findOrCreate({                     //En 'Diet' busca o crea
-                where: { name: type }               //Donde la propiedad 'name' tenga el 'type' de dieta
+                where: { name: type }               //Donde a la propiedad 'name' se le asigna el 'type' de dieta del array
             });
         });
         const diets = await Diet.findAll();         //Esto trae toda la información
-        res.status(200).send(diets);                //Respoonde con todo lo que se trae de la tabla 'Diet' de la DB
+        res.status(200).send(diets);                //Responde con todo lo que se trae de la tabla 'Diet' de la DB
         console.log(diets)
     } catch (error) {
         res.status(404).send('No se logró traer tu dieta solicitada.');

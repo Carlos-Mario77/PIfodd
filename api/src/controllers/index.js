@@ -9,7 +9,7 @@ const getApiInfo = async () => {
         return {
             id: recipe.id,                                                                              //id
             name: recipe.title,                                                                         //nombre
-            summary: recipe.summary,                                                                    //resumen
+            summary: recipe.summary.split("<b>").join(" ").split("</b>").join(" ").split("<a href=").join("\n").split("</a>").join("\n").split(">").join("\n"),//resumen
             instructions: recipe.analyzedInstructions[0]                                                //paso a paso
             ? recipe.analyzedInstructions[0].steps.map((recipe, i) => `${i + 1}: ${recipe.step}`)
             : ["No existen instrucciones para esta receta."],
