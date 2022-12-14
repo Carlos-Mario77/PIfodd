@@ -25,7 +25,6 @@ function validate (input) {                             //Función validadora, e
     } else if(parseInt(input.health_Score) < 1){
         errors.health_Score = "Tiene que mayor a 1"
     }
-
     return errors;                                      //Se retorna errors, esto muestra en pantalla el mensaje
 };
 
@@ -33,6 +32,7 @@ function validate (input) {                             //Función validadora, e
 export default function RecipesCreate() {
     const dispatch = useDispatch();                     //Traigo dispatch xq voy a despachar una action
     const [ errors, setErrors ] = useState({});         //Se crea un estado local para guardar el valor de la validación, es un obj vacío
+
 
     //Local State donde guardaré los eventos para poderlos enviar
     const [ input, setInput ] = useState({              //Es el Local State
@@ -59,6 +59,7 @@ export default function RecipesCreate() {
         console.log(input);
     };
 
+
     //Fn que setea en el Local State en el diets
     function handlerCheck(e) {                           //Como las diets es un checkbox, usaremos el target.checked
         if (e.target.checked) {                         //Si hay checked de diets
@@ -68,6 +69,7 @@ export default function RecipesCreate() {
             });
         };
     };
+
 
     //Fn para enviar el formulario cuando damos click en el botón enviar
     function handlerSubmit(e) {                          //Es para enviar el formulario cuando se le de click al botón
@@ -109,13 +111,10 @@ export default function RecipesCreate() {
                 <div>
                     <label>Imagen</label>
                     <input type="text" value={ input.image } name='image' placeholder="Link to your recipe image" onChange={(e) => handlerChange(e)} />
-
                 </div>
-
                 <div>
                     <label>Instructions: </label>
                     <input type="text" value={ input.instructions } name='instructions' placeholder="Enter the instructions" onChange={(e) => handlerChange(e)} />
-
                 </div>
 				
                 <div>
@@ -142,178 +141,9 @@ export default function RecipesCreate() {
                         !errors.diets && input.diets.length > 0
 
                         ? <button id="Boton_AddRecipe" type="submit">Agregar</button> : <button id="Boton_AddRecipe" type="submit" disabled>Agregar</button>
-
-
                     }
                 </div>
             </form>
         </div>
     );
 };
-
-
-
-
-
-
-
-// import React, { useEffect, useState } from "react";
-// import {useDispatch, useSelector } from "react-redux";
-// import { postRecipes, getRecipes, getDiets } from '../../redux/actions/index';
-
-// export function validate(input, recetas){       //Recibe el estado 'input' y el 'recetas'
-//     let errors = {};
-//     if(!input.name){
-//         console.log("Nombre es requerido")
-//         errors.name = "Nombre es requerido"
-//     } else if(/[.!@#$%^&*()_+-=]/.test(input.name)){
-//         errors.name = "Nombre no puede tener números o caracteres especiales"
-//     }
-
-//     if(!input.summary){
-//         errors.summary = "Resumen es requerido"
-//     }
-
-//     if(!/[0-9]/.test(input.health_Score)){
-//         errors.health_Score = "Puntaje de Salud tiene que ser un numero"
-//     } else if(parseInt(input.health_Score) > 100){
-//         errors.health_Score = "Tiene que ser igual o menor que 100"
-//     } else if(parseInt(input.health_Score) < 1){
-//         errors.health_Score = "Tiene que mayor a 1"
-//     }
-
-//     if(!/[0-9]/.test(input.id)){
-//         errors.id = "ID tiene que ser un numero"
-//     } else if(recetas.find( rec => rec.id === "D"+input.id)){
-//         console.log("ERROR")
-//         errors.id = "ID ya existente"
-//     }
-
-//     return errors;
-// };
-
-
-// export default function RecipesCreate() {
-//     const recetas = useSelector(state => state.filteredRecipes)
-//     const dietTypes = useSelector(state => state.diets)
-//     const dispatch = useDispatch()
-
-
-//     //Al montar el componente, traigo todas las recetas creadas por el usuario y las dietas
-//     useEffect(()=>{
-//         dispatch(getRecipes())
-//         dispatch(getDiets())
-//     }, [dispatch]);
-
-
-//     //Este estado se encarga de almacenar los datos de la nueva receta
-//     const [ input, setInput ] = useState({
-//         name: '',
-//         summary: '',
-//         health_Score: '',
-//         image: '',
-//         instructions: '',
-//         diets: []    
-//     });
-
-//     const [ errors, setErrors ] = useState({}); //Este estado controla los errores del validate
-
-
-//     //Esta funcion se encarga de crear un array de dietas que serán los vinculados a la dieta
-//     const handleChangeArray = (e) =>{
-//         let newDiet = e.target.value;
-//         let diets = new Set([...input.diets]);      //Necesito un set para que se repitan las dietas
-//         if(!diets.has(newDiet)){                    //Si este array no tiene la dieta, se la agrega sino, se elimina
-//             diets.add(newDiet)
-//         } else{
-//             diets.delete(newDiet)
-//         }
-
-//         diets = Array.from(diets)
-//         setInput({                                  //Lo seteo en el Input
-//             ...input,
-//             diets
-//         });
-//     };
-
-
-//     //Este actualiza los datos del input y controla los errores
-//     const handleChange = (e) => {
-//         setInput({
-//             ...input,
-//             [e.target.name]: e.target.value
-//           })
-//           setErrors(validate({
-//             ...input,
-//             [e.target.name]: e.target.value
-//           }, recetas));
-//     };
-
-
-//     //Al aplicar los cambios, se la agrega a la base de datos
-//     const handleSubmit = (e) => {
-//         //console.log(input)
-//         dispatch(postRecipes(input))  //'create_Recipe' es la action que crea la receta en la ruta post
-//         alert("Receta Agregada")
-//     };
-
-
-//     //Crea las dietas con "checkboxes"
-//     const createOptions = () => {
-//         return dietTypes.map( (diets) => {
-//             return(
-//                 <div>
-//                     <label htmlFor={diets.name}>{diets.name}</label>,
-//                     <input type="checkbox" value={diets.name} name={diets.name} autoComplete="off" onChange={e => handleChangeArray(e)} />
-//                 </div>
-//             );
-//         });
-//     };
-
-//     //----------------------------
-//     return(
-//         <div id="div_addForm">
-//             <h1 id="tituloAddForm">Agrega una Receta!</h1>
-//             <form id="formAdd" onSubmit={ e => handleSubmit(e)}>
-//                 {/*Estos son los inputs y los labels*/}
-//                 <div className="addRecipe_label">
-//                     <label>Name*: </label>
-//                     <input type="text" name="name" autoComplete="off" value={input.name} onChange={e => handleChange(e)} />
-//                 </div>
-//                 {errors.name && <p className="danger">{errors.name}</p>}
-
-//                 <div className="addRecipe_label">
-//                     <label>Summary*: </label>
-//                     <input type="text" name="summary" autoComplete="off" value={input.summary} onChange={e => handleChange(e)} />
-//                 </div>
-//                 {errors.summary && <p className="danger">{errors.summary}</p>}
-
-//                 <div className="addRecipe_label">
-//                     <label>Health Score: </label>
-//                     <input type="text" name="health_Score" autoComplete="off" value={input.health_Score} onChange={e => handleChange(e)} />
-//                 </div>
-//                 {errors.health_Score && <p className="danger">{"\n"+errors.health_Score}</p>}
-
-//                 <div className="addRecipe_label">
-//                     <label htmlFor="">Imagen (URL): </label>
-//                     <input type="text" name="image" autoComplete="off" value={input.image} onChange={e => handleChange(e)} />
-//                 </div>
-
-//                 <div className="addRecipe_label">
-//                     <label>Instructions: </label>
-//                     <input type="text" name="instructions" autoComplete="off" value={input.instructions} onChange={e => handleChange(e)} />
-//                 </div>
-
-//                 {/*Este es el select de las dietas*/}
-//                 <div>
-//                     <p>Selecciona las dietas:</p>
-//                     {createOptions()}
-//                 </div>
-                
-//                 <div>
-//                     {!errors.name && input.name.length > 0 && !errors.summary && input.summary.length > 0 ? <button id="Boton_AddRecipe" type="submit">Agregar</button> : <button id="Boton_AddRecipe" type="submit" disabled>Agregar</button>}
-//                 </div>
-//             </form>
-//         </div>
-//     );
-// };
