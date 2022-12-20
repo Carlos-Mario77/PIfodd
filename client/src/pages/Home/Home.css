@@ -1,0 +1,131 @@
+.containerHome {    
+    /* border: 3px solid green; */
+    min-height: 100vh;
+    background-image: url(../../../public/assets/7.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menuHome {
+    /* border: 1px solid yellow; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 30px;
+    background: rgba(120,0,0, 0.65);
+}
+
+.iconoHome {
+    color: wheat;
+    font-size: 50px;
+    width: 100px;
+    margin: 0 0 0 50px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.iconoHome:hover {
+    color: #faedcd;
+}
+
+.containerCardHome {
+    /* border: 1px solid green; */
+    margin: 50px 20px;
+    border-radius: 20px;
+    width: 300px;
+    height: 400px;
+    background: rgba(79,0,11, 0.5);
+    padding: 30px 0;
+    box-sizing: border-box;
+    transition: 300ms;
+}
+
+.containerCardHome:hover{
+    cursor: pointer;
+    transform: translateY(-3%);
+}
+/*--------------------Botones--------------------*/
+.contenedorBotonesHome {
+    border: 1px solid white;
+    margin: 0 50px;
+}
+
+.botonCrearRecataHome {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #780000;
+    grid-column: 1/2;
+    transition: 300ms;
+}
+
+.botonCrearRecataHome:hover {
+    color: white;
+    background: #0a0908;
+    cursor: pointer;
+}
+
+.botonVolverLandingPage {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #780000;
+    grid-column: 2/3;
+    transition: 300ms;
+}
+
+.botonVolverLandingPage:hover {
+    color: white;
+    background: #0a0908;
+    cursor: pointer;
+}
+
+.containerCardHome1 {
+    border: 1px solid red;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 1000px) {
+    .containerCardHome1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .containerCardHome1 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .contenedorBotonesHome {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

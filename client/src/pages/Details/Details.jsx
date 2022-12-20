@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getRecipesDetails } from '../../redux/actions/index';
+import './Details.css';
 
 
 export default function Details() {
@@ -16,24 +17,43 @@ export default function Details() {
     }, [dispatch, id]);
 
     return (
-        <div className="bodyHome">
-            <Link to = "/home">
-                <button className = "buttonNav">Volver</button>
-            </Link>
-            {   details.length > 0 ?
-                <div>
-                    <h1>{ details[0].name }</h1>                                {/*'details' tiene todos las recetas en un array, y solo seleccionamos la receta con el id del params, entonces ese array queda con un solo obj que contine la info del id del params, por eso el [0]*/}
-                    <img alt='Imagen' src={ details[0].image } />
-                    <p>Summary: { details[0].summary }</p>
-                    <p>Health Score: { details[0].health_Score }</p>
-                    <p>Instructions: { details[0].instructions }</p>
-                    <h2>Diets: { details[0].diets } </h2>
-                </div> : <p>Loading...</p>
-            }
+        <div className="detailContainer">
+            <div className="detailContainer2">
+                {   
+                    details.length > 0 ?
+                        <div className="contenedorDetails">
+                            <div className="Detail1">
+                                <div className="glassDetails1">
+                                    <h1 className="h1Details">{ details[0].name }</h1>                                {/*'details' tiene todos las recetas en un array, y solo seleccionamos la receta con el id del params, entonces ese array queda con un solo obj que contine la info del id del params, por eso el [0]*/}
+                                    <img className="imageDetails" alt='Imagen' src={ details[0].image } />
+                                </div>
+                                <div className="glassDetails2">
+                                    <h2 className="h2Details">Diets: </h2>
+                                    <p className="parrafoDetails">{ details[0].diets } </p>
+                                </div>
+                                <div className="glassDetails3">
+                                    <h2 className="h2Details">Health Score: </h2>
+                                    <p className="parrafoDetails">{ details[0].health_Score }</p>
+                                </div>
 
-            <Link to = "/home">
-                <button className = "buttonNav">Volver</button>
-            </Link>
+                                <Link to = "/home">
+                                    <button className = "botonDetails">Volver</button>
+                                </Link>
+                            </div>
+
+                            <div className="Detail2">
+                                <div className="glassDetails4">
+                                    <h2 className="h2Details">Summary: </h2>
+                                    <p>{ details[0].summary }</p>
+                                </div>
+                                <div className="glassDetails5">
+                                    <h2 className="h2Details">Instructions: </h2>
+                                    <p>{ details[0].instructions }</p>
+                                </div>
+                            </div>
+                        </div> : <p>Loading...</p>
+                }
+            </div>
         </div>
     );
 };

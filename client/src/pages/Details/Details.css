@@ -1,0 +1,93 @@
+.detailContainer {
+    color: wheat;
+    min-height: 100vh;
+    background-image: url(../../../public/assets/9.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.detailContainer2{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.botonDetails {
+    color: #4f000b;
+    font-size: 25px;
+    font-weight: bold;
+    width: 180px;
+    height: 60px;
+    margin: 15px auto;
+    border: none;
+    border-radius: 5px;
+    background: wheat;
+}
+
+.botonDetails:hover {
+    color: wheat;
+    background: #4f000b;
+    cursor: pointer;
+}
+
+.contenedorDetails {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.Detail1 {
+    grid-column: 1/2;
+    margin: 50px;
+}
+
+.glassDetails2, .glassDetails3 {
+    color: wheat;
+    font-size: 16px;
+    min-height: 100px;
+    margin: 20px 0;
+    padding-top: 10px;
+    border-radius: 10px;
+    background: rgba(79,0,11, 0.7);
+}
+
+.imageDetails {
+    width: 550px;
+    height: 405px;
+    margin-top: 20px;
+    border-radius: 10px;
+    
+    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
+    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
+    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
+}
+
+.parrafoDetails:first-letter {
+    text-transform: uppercase;
+}
+
+.Detail2 {
+    grid-column: 2/3;
+}
+
+.glassDetails4, .glassDetails5 {
+    min-height: 200px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    font-size: 16px;
+    color: wheat;
+    background: rgba(79,0,11, 0.7);
+}
+
+.h1Details {
+    font-size: 45px;
+    margin-top: -40px;
+}
+
+.h2Details {
+    font-size: 30px;
+    padding-bottom: 5px;
+}

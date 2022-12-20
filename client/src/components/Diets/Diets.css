@@ -1,0 +1,12 @@
+.containerDiets {
+    color: wheat;
+    margin: 0 10px;
+}
+
+.selectDiets {
+    color: #4f000b;
+    height: 25px;
+    width: 150px;
+    background: #eae2b7;
+    border-radius: 5px;
+}

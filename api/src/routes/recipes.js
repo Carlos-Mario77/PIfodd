@@ -123,5 +123,41 @@ router.put('/:id', async function(req, res, next) {
 //Hice un PUT a http://localhost:3001/recipes/e029bc97-9757-490a-b24c-c9889f73aa45 con: { "id": "7f27c7fd-aacf-40f4-9e64-b8acb93835ce", "name": "Carne asada deliciosa", "summary": "Carne asada para los familiares", "instructions": "1- Comprar la carne, 2- Cortar la carne, 3- Salar la carne, 4-Comer", "health_Score":"70", "image":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.recepedia.com%2Fes-mx%2Freceta%2Fcarne%2F109068-carne-asada%2F&psig=AOvVaw15SXx71aMDiTMfAAck3lEX&ust=1670358666826000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDW44mp4_sCFQAAAAAdAAAAABAE", "diets": "Primal" }
 
 
+/*
+router.delete("/delete/:id", async (req, res) => {
+    const idReceta = req.params.id
+    try {
+        const response = await deleteRecipe(idReceta)
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+})
+
+const deleteRecipe = async (id) => {
+    //Busco primero que exista la Receta
+    const receta = await Recipe.findByPk(id, {raw:true})
+    console.log(await receta)
+    if(await receta){
+        try {
+            //Intento eliminar
+            await Recipe.destroy({
+                where: {id: id}
+            })
+            //Chequeo si sigue existiendo, si es asi, tiro un error
+            const check = await Recipe.findByPk(id, {raw:true})
+            if(await check) throw new Error("La receta no se elimino correctamente")
+            return "La receta se elimino exitosamente!"
+        } catch (error) {
+            throw new Error("Hubo un error en la actualizacion: "+error.message)
+        }
+    }
+    else{
+        //Sino tira error
+        throw new Error("La receta ingresada no existe (ID not found)")
+    }
+}
+*/
+
 
 module.exports = router;

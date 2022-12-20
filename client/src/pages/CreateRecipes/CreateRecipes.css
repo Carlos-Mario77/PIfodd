@@ -1,0 +1,225 @@
+.containerCreateRecipes {
+    color: wheat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../../../public/assets/12.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formularioCreateRecipes {
+    width: 900px;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 15px;
+    background: rgba(79,0,11, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.4);
+    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.4);
+    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.4);
+}
+
+.tituloCreateRecipes {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.containerInputsCreate {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ancholeyecda {
+    background: rgba(79,0,11, 0.6);
+    height: 60px;
+    width: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+
+    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.6);
+    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.6);
+    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.6);
+}
+
+.labelCreateRecipes {
+    font-size: 20px;
+    width: 200px;
+    margin-right: -20px 10px 10px 10px;
+}
+
+.inputCreateRecipes {
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid wheat;
+}
+
+.containerSelectDiets {
+    margin: 30px;
+    padding: 10px;
+    background: rgba(79,0,11, 0.65);
+
+    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+}
+
+.containerSelectDiets2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.containerInputSelect {
+    height: 60px;
+    width: 120px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid rgba(245, 222, 79,0.3);
+    transition: 300ms;
+}
+
+.containerInputSelect:hover {
+    background: #0a0908;
+    cursor: pointer;
+}
+
+.inputCheckboxSelectDiets {
+    min-height: 20px;
+    min-width: 20px;
+    margin: 0 5px;
+}
+
+.inputCheckboxSelectDiets:hover {
+    cursor: pointer;
+}
+
+.containerSummaryCreate {
+    height: 150px;
+    width: 800px;
+    margin: 15px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(79,0,11, 0.6);
+
+    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+}
+
+.inputSummaryCreateRecipes {
+    height: 100px;
+    width: 750px;
+    border-radius: 5px;
+    border: 1px solid wheat;
+}
+
+.labelCreateRecipesSummary {
+    color: wheat;
+    font-size: 20px;
+}
+
+.containerInstruccionsCreate {
+    height: 250px;
+    width: 800px;
+    margin: 0 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(79,0,11, 0.6);
+
+    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.65);
+}
+
+.inputCreateRecipesInstrucciones {
+    height: 200px;
+    width: 750px;
+    text-align: start;
+    border-radius: 5px;
+    border: 1px solid wheat;
+}
+
+.botonAprobadoCreate {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 120px;
+    height: 50px;
+    margin: 0 auto 20px auto;
+    border: none;
+    border-radius: 10px;
+    background: #14213d;
+    transition: 300ms;
+}
+
+.botonAprobadoCreate:hover {
+    color: white;
+    background: #000000;
+    cursor: pointer;
+}
+
+.botonDesaprobadoCreate {
+    color: #adb5bd;
+    font-size: 20px;
+    font-weight: bold;
+    width: 120px;
+    height: 50px;
+    margin: 0 auto 20px auto;
+    border: none;
+    border-radius: 10px;
+    background: #e9ecef;
+}
+
+.danger{ 
+    color: red;
+    margin-top: -25px;
+}
+
+.dangersummary {
+    color: red;
+}
+
+.botonVolverHomecreateRecipes {
+    color: #780000;
+    font-size: 25px;
+    font-weight: bold;
+    height: 50px;
+    width: 120px;
+    margin: 30px auto 30px auto;
+    border: none;
+    border-radius: 10px;
+    background: wheat;
+    transition: 300ms;
+}
+
+.botonVolverHomecreateRecipes:hover {
+    color: white;
+    background: #780000;
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.containerPaginado {
+    border: 1px solid chocolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginado{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.numberPaginado {
+    list-style: none;
+    display: inline;        /*Esta propiedad convierte la lista de botones de vertical a horizontal*/
+    margin: 0 auto;
+}
+
+.botonPaginado {
+    color: #4f000b;
+    font-size: 25px;
+    font-weight: bold;
+    width: 60px;
+    height: 45px;
+    margin: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    background: wheat;
+    transition: 300ms;
+}
+
+.botonPaginado:hover {
+    color: wheat;
+    background: #4f000b;
+}

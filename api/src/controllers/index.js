@@ -18,9 +18,9 @@ const getApiInfo = async () => {
             diets: recipe.diets                                                                         //dietas
         };
     });
-    return apiInfo;
+        return apiInfo;
 };
-
+    
 
 //Función que une las tablas 'Recipe' y 'Diet' de la DB
 const getDbInfo = async () => {
