@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaLinkedin, FaGithub, FaLaptopHouse } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import Typed from 'typed.js';
 import './LandingPage.css';
 
@@ -44,6 +44,7 @@ export default function LandingPage () {
                 <a href="https://www.linkedin.com/in/carlosmario-pro/" target="_blank" rel="noreferrer noopener"><FaLinkedin className="linkedinLandingPage" /></a>
                 <a href="https://github.com/CarlosMario-Pro" target="_blank" rel="noreferrer noopener"><FaGithub className="githubLandingPage" /></a>
             </div>
+            
         </div>
     );
 }

@@ -2,25 +2,25 @@
     margin: 0;
     padding: 0;
 }
-
+  
 .containerPaginado {
-    border: 1px solid chocolate;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.paginado{
+    /* border: 1px solid chocolate; */
+    margin: 50px 0 0 0;
     width: 90%;
-    margin: 0 auto;
 }
+  
 
 .numberPaginado {
     list-style: none;
-    display: inline;        /*Esta propiedad convierte la lista de botones de vertical a horizontal*/
+    display: inline; /* Esta propiedad convierte la lista de botones de vertical a horizontal */
     margin: 0 auto;
 }
-
+  
+.botonPaginado.active {
+    background-color: #4f000b;
+    color: wheat;
+}
+  
 .botonPaginado {
     color: #4f000b;
     font-size: 25px;
@@ -33,7 +33,7 @@
     background: wheat;
     transition: 300ms;
 }
-
+  
 .botonPaginado:hover {
     color: wheat;
     background: #4f000b;

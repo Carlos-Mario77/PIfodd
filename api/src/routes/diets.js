@@ -28,12 +28,12 @@ router.get("/", async (req, res) => {
         });
         const diets = await Diet.findAll();         //Esto trae toda la información
         res.status(200).send(diets);                //Responde con todo lo que se trae de la tabla 'Diet' de la DB
-        console.log(diets)
+        console.log(diets);
     } catch (error) {
-        res.status(404).send('No se logró traer tu dieta solicitada.');
+        //res.status(404).send('No se logró traer tu dieta solicitada.');
         throw new Error('No se logró traer tu dieta solicitada.' + error.message);
     }
-  });
+});
 
 
 module.exports = router;

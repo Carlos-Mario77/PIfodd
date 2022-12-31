@@ -2,13 +2,11 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
-
 import './BackTotopButton.css';
 
 
 const BackTotopButton = () => {
     const [ backToTopButton, setBackToTopButton ] = useState(false);
-
     useEffect (() => {
         window.addEventListener('scroll', () => {
             if(window.scrollY > 100) {
@@ -25,7 +23,6 @@ const BackTotopButton = () => {
             behavior: 'smooth'
           });
     };
-
 
   return (
     <div>

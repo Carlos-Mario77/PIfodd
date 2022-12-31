@@ -71,3 +71,23 @@ export function postRecipes(payload){                     //Se pasa un payload q
         return response;                                    //No se usa el dispatch en las rutas tipo post
     };
 };
+
+
+//Elimina las recetas creadas
+export function deleteRecipe(id) {
+    console.log(id);
+    return async function (dispatch) {
+      const response = await axios.delete(`http://localhost:3001/recipes/${id}`);
+      return dispatch({ type: 'DELETE_RECIPE', payload: response.data });
+    };
+};
+
+
+
+
+// export const updateRecipe = (id, payload) => {
+//     return async (dispatch) => {
+//         const response = await axios.put(`/recipe/${id}`, payload);
+//         return dispatch({ type: UPDATE_ACTIVITY, payload: response.data });
+//     };
+// };

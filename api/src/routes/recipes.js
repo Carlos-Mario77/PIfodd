@@ -22,10 +22,11 @@ router.get('/', async (req, res) => {
         }
     }    
     catch (error) {
-        res.status(404).send('No se logró traer tu receta solicitada.');
-        //throw new Error('No se logró traer tu receta solicitada.' + error.message);
+        //res.status(404).send('No se logró traer tu receta solicitada.');
+        throw new Error('No se logró traer tu receta solicitada.' + error.message);
     }
-});//FUNCIONA, trae todas las recetas y filtra todas las que coincidan con el nombre
+});
+//Hice un GET a http://localhost:3001/recipes para traer todas las recetas y filtra todas las que coincidan con el nombre
 
 
 
@@ -41,10 +42,11 @@ router.get('/:id', async (req, res) => {
             res.status(404).send('No encontré ese personaje')
         }
     } catch (error) {
-        res.status(404).send('No se logró traer tu receta solicitada.');
+        //res.status(404).send('No se logró traer tu receta solicitada.');
         throw new Error('No se logró traer tu receta solicitada.' + error.message);
     }
-});//Hice un GET a http://localhost:3001/recipes/716426 para traer la receta por id
+});
+//Hice un GET a http://localhost:3001/recipes/716426 para traer la receta por id
 
 
 
@@ -59,20 +61,20 @@ router.post('/', async (req, res) => {
             health_Score, 
             image,
             diets,
-            createdInDb,
-        }); //Creamos la receta --> No se pasa 'diets' porque se usa para unirla con la receta
+            createdInDb
+        }); //Creamos la receta
         
         const dietsDb = await Diet.findAll({//Dentro de 'Diet', que busque y encuentre todas las 'diets' que coincidan con la pasada por body
             where:{
                 name: diets
             }
         });
-        console.log(dietsDb)
+        console.log(dietsDb);
         newRecipe.addDiet(dietsDb);
        
         res.status(200).json("Receta creada")
     } catch (error) {
-        res.status(404).send('No se logró crear tu receta.');
+        //res.status(404).send('No se logró crear tu receta.');
         throw new Error('No se logró crear tu receta.' + error.message);
     }
 });
@@ -92,7 +94,7 @@ router.delete("/:id", async (req, res) => {
         });
         res.status(200).json(deletedRecipe);
     } catch (error) {
-        res.status(404).json("Error in route delete Recipe", error);
+        res.status(404).json("No se logró eliminar la receta indicada.", error);
     }
 });
 //Hice un DELETE a http://localhost:3001/recipes/e029bc97-9757-490a-b24c-c9889f73aa45 con: 
@@ -118,46 +120,11 @@ router.put('/:id', async function(req, res, next) {
       )
         return res.send(result)
     }
-   catch (error) {next(error)};
+    catch (error) {
+        next(error);
+    };
 });
 //Hice un PUT a http://localhost:3001/recipes/e029bc97-9757-490a-b24c-c9889f73aa45 con: { "id": "7f27c7fd-aacf-40f4-9e64-b8acb93835ce", "name": "Carne asada deliciosa", "summary": "Carne asada para los familiares", "instructions": "1- Comprar la carne, 2- Cortar la carne, 3- Salar la carne, 4-Comer", "health_Score":"70", "image":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.recepedia.com%2Fes-mx%2Freceta%2Fcarne%2F109068-carne-asada%2F&psig=AOvVaw15SXx71aMDiTMfAAck3lEX&ust=1670358666826000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDW44mp4_sCFQAAAAAdAAAAABAE", "diets": "Primal" }
-
-
-/*
-router.delete("/delete/:id", async (req, res) => {
-    const idReceta = req.params.id
-    try {
-        const response = await deleteRecipe(idReceta)
-        res.status(200).send(response)
-    } catch (error) {
-        res.status(400).send(error.message)
-    }
-})
-
-const deleteRecipe = async (id) => {
-    //Busco primero que exista la Receta
-    const receta = await Recipe.findByPk(id, {raw:true})
-    console.log(await receta)
-    if(await receta){
-        try {
-            //Intento eliminar
-            await Recipe.destroy({
-                where: {id: id}
-            })
-            //Chequeo si sigue existiendo, si es asi, tiro un error
-            const check = await Recipe.findByPk(id, {raw:true})
-            if(await check) throw new Error("La receta no se elimino correctamente")
-            return "La receta se elimino exitosamente!"
-        } catch (error) {
-            throw new Error("Hubo un error en la actualizacion: "+error.message)
-        }
-    }
-    else{
-        //Sino tira error
-        throw new Error("La receta ingresada no existe (ID not found)")
-    }
-}
-*/
 
 
 module.exports = router;

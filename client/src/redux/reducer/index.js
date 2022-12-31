@@ -91,6 +91,18 @@ function rootReducer (state= initialState, action) {
             return {
                 ...state
             };
+        case 'DELETE_ACTIVITY': 
+            return {
+                ...state,
+            };
+
+
+        // case UPDATE_ACTIVITY: {
+        //     return {
+        //         ...state,
+        //         responseCreateActivity: action.payload,
+        //     };
+        // }
         default:
         return state;
     };

@@ -6,27 +6,26 @@ import './CreateRecipes.css';
 
 
 function validate (input) {                             //Función validadora, el 'input' es el Local State
-
     let errors = {};
     //Validamos 'name'
     if(!input.name){
-        errors.name = "El nombre de la receta es requerido"
+        errors.name = "El nombre de la receta es requerido";
     } else if(/[.!@#$%^&*()_+-=]/.test(input.name)){
-        errors.name = "El nombre no puede tener números o caracteres especiales"
+        errors.name = "El nombre no puede tener números o caracteres especiales";
     }
 
     //Validamos 'summary'
     if(!input.summary){
-        errors.summary = "El resumen de la receta es requerido."
+        errors.summary = "El resumen de la receta es requerido.";
     }
 
     //Validamos 'health_Score'
     if(!/[0-9]/.test(input.health_Score)){
-        errors.health_Score = "El puntaje de Salud tiene que ser un numero"
+        errors.health_Score = "El puntaje de Salud tiene que ser un numero";
     } else if(parseInt(input.health_Score) > 100){
-        errors.health_Score = "El puntaje debe que ser igual o menor que 100"
+        errors.health_Score = "El puntaje debe que ser igual o menor que 100";
     } else if(parseInt(input.health_Score) < 1){
-        errors.health_Score = "El puntaje debe que mayor a 1"
+        errors.health_Score = "El puntaje debe que mayor a 1";
     }
     return errors;                                      //Se retorna errors, esto muestra en pantalla el mensaje
 };
@@ -35,7 +34,6 @@ function validate (input) {                             //Función validadora, e
 export default function RecipesCreate() {
     const dispatch = useDispatch();                     //Traigo dispatch xq voy a despachar una action
     const [ errors, setErrors ] = useState({});         //Se crea un estado local para guardar el valor de la validación, es un obj vacío
-
 
     //Local State donde guardaré los eventos para poderlos enviar
     const [ input, setInput ] = useState({              //Es el Local State
@@ -46,11 +44,11 @@ export default function RecipesCreate() {
         instructions: '',
         diets: []                                       //'diets' va a ser un array, xq cada receta puede tener varias diets
     });
+    
 
- 
     //Es el handler para los inputs de los atributos en la tabla 'Recipes'
     function handlerChange(e) {                         //Es para el valor de los inputs que tienen los atributos del model 'Country'. Cada que se ejecute esta función
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setInput({                                      //LLamamos al estado input
             ...input,                                   //Tomamos todo lo que ya teniamos y además de lo que tiene...
             [e.target.name] : e.target.value            //Según lo que modifique el input, agrege ese 'e.target.value' como valor del [e.target.name], este 'name' en el 'e.target.name', es el atributo del 'input', y como en el input puse neme='name', name='nickname', name='birthday', etc, entonces modificará la propiedad respectiva del estado.
@@ -59,23 +57,25 @@ export default function RecipesCreate() {
             ...input,                                   //Hacemos una copia para no pisar el estado input
             [e.target.name] : e.target.value            //Con lo que llegue del [e.target.name] : e.target.value
         }));
-        console.log(input);
+        // console.log(input);
     };
 
 
     //Fn que setea en el Local State en el diets
     function handlerCheck(e) {                           //Como las diets es un checkbox, usaremos el target.checked
-        if (e.target.checked) {                         //Si hay checked de diets
+        if (e.target.checked) {                          //Si hay checked de diets
             setInput({
-                ...input,                               //Traemos todo lo que hasta el momento está guardado en el input
-                diets: e.target.value                   //Y seteamos el status con el e.target.value
+                ...input,                                //Traemos todo lo que hasta el momento está guardado en el input
+                diets: e.target.value                    //Y seteamos el status con el e.target.value
             });
         };
     };
 
 
     //Fn para enviar el formulario cuando damos click en el botón enviar
-    function handlerSubmit(e) {                         //Es para enviar el formulario cuando se le de click al botón
+    function handlerSubmit(e) {  
+        console.log(input)
+        //Es para enviar el formulario cuando se le de click al botón
         e.preventDefault();                             //Como es un botón que enviará algo, recarga todo el formulario, con esto inpedimos que suceda eso
         dispatch(postRecipes(input));                   //Despachamos la fn de la action que crea el personaje en la DB, pasamos todo lo contenido en el estado 'input'
         alert('Receta creada.')                         //Enviamos un mensaje de alguna manera que le indique que el personaje fue creado
@@ -85,9 +85,11 @@ export default function RecipesCreate() {
             health_Score: '',
             instructions: '',
             image: '',
-            diets: []
+            diets: ""
         });
-        
+        // Después de enviar la información, deseleccionamos todos los checkboxes
+        const checkboxes = document.querySelectorAll('.containerSelectDiets2 input[type="checkbox"]');
+        checkboxes.forEach(checkbox => checkbox.checked = false);
     };
 
 
@@ -111,7 +113,6 @@ export default function RecipesCreate() {
                         <div className="labelCreateRecipes">Imagen</div>
                         <input className="inputCreateRecipes" type="text" value={ input.image } name='image' placeholder="Link to your recipe image" onChange={(e) => handlerChange(e)} />
                     </div>
-
                 </div>
 
                 <div className="containerSelectDiets">

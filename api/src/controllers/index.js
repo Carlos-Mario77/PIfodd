@@ -18,7 +18,7 @@ const getApiInfo = async () => {
             diets: recipe.diets                                                                         //dietas
         };
     });
-        return apiInfo;
+    return apiInfo;
 };
     
 
@@ -48,4 +48,4 @@ const getAllRecipes = async () => {
 
 module.exports = {
     getAllRecipes
-}
+};
