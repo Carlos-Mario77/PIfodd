@@ -38,7 +38,7 @@
 
 /*--------------------Cards--------------------*/
 .containerCardHome1 {
-    /* border: 1px solid red; */
+    /* border: 5px solid red; */
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -130,6 +130,28 @@
     color: white;
     background: #0a0908;
     cursor: pointer;
+}
+
+.prevNext {
+    margin: 40px 0 0 0;
+}
+
+.prev, .next {
+    color: #4f000b;
+    font-size: 35px;    
+    font-weight: bold;
+    width: 60px;
+    height: 45px;
+    margin: 0 100px;
+    border: none;
+    border-radius: 5px;
+    background: wheat;
+    transition: 300ms;
+}
+
+.next:hover, .prev:hover {
+    color: wheat;
+    background: #4f000b;
 }
 
 

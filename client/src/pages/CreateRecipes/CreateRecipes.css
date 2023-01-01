@@ -1,13 +1,11 @@
 .containerCreateRecipes {
     color: wheat;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-image: url(../../../public/assets/12.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -18,7 +16,7 @@
 .formularioCreateRecipes {
     width: 900px;
     padding: 20px;
-    margin-top: 40px;
+    margin: 10px auto;
     border-radius: 15px;
     background: rgba(79,0,11, 0.4);
     display: flex;
@@ -222,4 +220,74 @@
     color: white;
     background: #780000;
     cursor: pointer;
+}
+
+
+
+/*---------------Resposive---------------*/
+@media screen and (max-width: 1000px) {
+    .formularioCreateRecipes {
+        width: 700px;
+    }
+
+    .containerSummaryCreate, .containerInstruccionsCreate {
+        width: 622px;
+    }
+
+    .inputSummaryCreateRecipes, .inputCreateRecipesInstrucciones {
+        width: 584px;
+    }
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .ancholeyecda {
+        height: 100px;
+        width: 470px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .labelCreateRecipes, .inputCreateRecipes {
+        margin: 0 auto;
+    }
+
+    .formularioCreateRecipes {
+        width: 470px;
+    }
+
+    .containerSummaryCreate, .containerInstruccionsCreate {
+        width: 470px;
+    }
+
+    .inputSummaryCreateRecipes, .inputCreateRecipesInstrucciones {
+        width: 470px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ancholeyecda {
+        margin: 20px ;
+        width: 315px;
+        height: 100px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .labelCreateRecipes, .inputCreateRecipes {
+        margin: 0 auto;
+    }
+
+    .formularioCreateRecipes {
+        width: 315px;
+    }
+
+    .containerSummaryCreate, .containerInstruccionsCreate {
+        width: 315px;
+    }
+
+    .inputSummaryCreateRecipes, .inputCreateRecipesInstrucciones {
+        width: 315px;
+    }
 }

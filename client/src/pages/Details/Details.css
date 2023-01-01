@@ -1,5 +1,7 @@
 .detailContainer {
     color: wheat;
+    max-width: 90%;
+    min-width: 100vw;
     min-height: 100vh;
     background-image: url(../../../public/assets/9.jpg);
     background-repeat: no-repeat;
@@ -8,11 +10,55 @@
     box-sizing: border-box;
 }
 
-.detailContainer2{
-    width: 90%;
-    margin: 0 auto;
+.contenedorDetails {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
+/*-----------Contenedor de texto e imagen-----------*/
+.Detail1 {
+    grid-column: 1/2;
+    margin: 50px 20px;
+}
+
+.h1Details {
+    font-size: 45px;
+    margin-top: -40px;
+}
+
+.imageDetails {
+    max-width: 500px;
+    margin-top: 20px;
+    border-radius: 10px;
+    
+    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
+    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
+    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
+}
+
+.glassDetails1 {
+    color: wheat;
+    font-size: 16px;
+    min-height: 100px;
+    margin: 20px 0;
+    padding-top: 10px;
+    border-radius: 10px;
+    background: rgba(79,0,11, 0.7);
+}
+
+.h2Details {
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+
+.parrafoDetails:first-letter {
+    text-transform: uppercase;
+}
+
+
+/*-----------Botón Details-----------*/
 .botonDetails {
     color: #4f000b;
     font-size: 25px;
@@ -31,48 +77,14 @@
     cursor: pointer;
 }
 
-.contenedorDetails {
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.Detail1 {
-    grid-column: 1/2;
-    margin: 50px;
-}
-
-.glassDetails2, .glassDetails3 {
-    color: wheat;
-    font-size: 16px;
-    min-height: 100px;
-    margin: 20px 0;
-    padding-top: 10px;
-    border-radius: 10px;
-    background: rgba(79,0,11, 0.7);
-}
-
-.imageDetails {
-    width: 550px;
-    height: 405px;
-    margin-top: 20px;
-    border-radius: 10px;
-    
-    -webkit-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
-    -moz-box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
-    box-shadow: 0 5px 8px 10px rgba(79,0,11,0.3);
-}
-
-.parrafoDetails:first-letter {
-    text-transform: uppercase;
-}
-
 .Detail2 {
     grid-column: 2/3;
+    margin: 0 20px;
 }
 
-.glassDetails4, .glassDetails5 {
+
+/*-----------Contenedor de Resumen e Instrucciones-----------*/
+.glassDetails2 {
     min-height: 200px;
     padding: 20px;
     margin: 20px 0;
@@ -82,12 +94,78 @@
     background: rgba(79,0,11, 0.7);
 }
 
-.h1Details {
-    font-size: 45px;
-    margin-top: -40px;
+
+
+/*-----------Media Query-----------*/
+@media screen and (max-width: 900px) {
+    .contenedorDetails {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .Detail1, .Detail2 {
+        grid-column: 1/2;
+        width: 600px;
+        margin: 50px auto 0 auto;
+    }
+
+    .imageDetails {
+        width: 700px;
+        margin-top: 20px;        
+    }
+
+    .glassDetails1 {
+        width: 500px;
+        margin: 20px auto;
+        min-height: 100px;
+    }
 }
 
-.h2Details {
-    font-size: 30px;
-    padding-bottom: 5px;
+
+@media screen and (max-width: 650px) {
+    .contenedorDetails {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .Detail1, .Detail2 {
+        grid-column: 1/2;
+        max-width: 380px;
+        margin: 50px auto 0 auto;
+    }
+
+    .imageDetails {
+        max-width: 380px;
+        margin-top: 20px;        
+    }
+
+    .glassDetails1 {
+        max-width: 380px;
+        margin: 20px auto;
+        min-height: 100px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contenedorDetails {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .Detail1, .Detail2 {
+        grid-column: 1/2;
+        max-width: 310px;
+        margin: 50px auto 0 auto;
+    }
+
+    .imageDetails {
+        max-width: 310px;
+        margin-top: 20px;        
+    }
+
+    .glassDetails1 {
+        max-width: 310px;
+        margin: 20px auto;
+        min-height: 100px;
+    }
 }

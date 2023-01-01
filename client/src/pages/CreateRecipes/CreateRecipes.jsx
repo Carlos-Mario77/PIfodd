@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { postRecipes } from '../../redux/actions/index';
+import BackTotopButton from "../../components/scroll/BackTotopButton";    //Scroll bar ejemplo 2
 import './CreateRecipes.css';
 
 
@@ -163,16 +164,16 @@ export default function RecipesCreate() {
 
                 <div className="containerSummaryCreate">
                     <div className="labelCreateRecipesSummary">Summary</div>
-                    <div className="">
-                        <input className="inputSummaryCreateRecipes" type="text" value={ input.summary } name='summary' placeholder="Enter your recipe summary" onChange={(e) => handlerChange(e)} />
+                    <div>
+                        <textarea className="inputSummaryCreateRecipes" type="text" value={ input.summary } name='summary' placeholder="Enter your recipe summary" onChange={(e) => handlerChange(e)} />
                     </div>
                     {errors.summary && <p className="dangersummary">{ errors.summary }</p>}
                 </div>
 
                 <div className="containerInstruccionsCreate">
                     <div className="labelCreateRecipes">Instructions</div>
-                    <div className="">
-                        <input className="inputCreateRecipesInstrucciones" type="text" value={ input.instructions } name='instructions' placeholder="Enter the instructions" onChange={(e) => handlerChange(e)} />
+                    <div>
+                        <textarea className="inputCreateRecipesInstrucciones" type="text" value={ input.instructions } name='instructions' placeholder="Enter the instructions" onChange={(e) => handlerChange(e)} />
                     </div>
                 </div>
 
@@ -189,6 +190,8 @@ export default function RecipesCreate() {
                     {/*Si no hay errores y el valor del input es mayor a 0 && , habilita el boón, de lo contrario botón en 'disabled'*/}
                 </div>
             </form>
+            {/* Scroll bar ejemplo 2 */}
+            <BackTotopButton />
             <Link to='/home'> <button className="botonVolverHomecreateRecipes">Volver</button> </Link>
         </div>
     );
