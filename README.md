@@ -6,6 +6,8 @@
   <img height="200" src="./cooking.png" />
 </p>
 
+
+## Mi satisfacción es que realicé el PI con el CRUD (Get, Post, Put y Delete) completo.
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.

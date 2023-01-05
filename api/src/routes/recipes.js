@@ -72,7 +72,7 @@ router.post('/', async (req, res) => {
         console.log(dietsDb);
         newRecipe.addDiet(dietsDb);
        
-        res.status(200).json("Receta creada")
+        res.status(200).json("Receta creada");
     } catch (error) {
         //res.status(404).send('No se logró crear tu receta.');
         throw new Error('No se logró crear tu receta.' + error.message);
