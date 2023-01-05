@@ -37,6 +37,11 @@ export default function Details() {
                                 <h2 className="h2Details">Health Score: </h2>
                                 <p className="parrafoDetails">{ details[0].health_Score }</p>
                             </div>
+
+                            <Link to = {`/actualizar/${id}`}>
+                                <button className = "botonActualizar">Actualizar</button>
+                            </Link>
+
                             <Link to = "/home">
                                 <button className = "botonDetails">Volver</button>
                             </Link>

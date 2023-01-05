@@ -9,7 +9,7 @@ export default function LandingPage () {
     const el = useRef(null);
     useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ['Chef...', 'Design...', 'Developer...', 'Henry...'], // Strings to display
+            strings: ['Chef...', 'Designer...', 'Developer...', 'Henry...'], // Strings to display
             // Speed settings, try diffrent values untill you get good results
             startDelay: 300,
             typeSpeed: 150,

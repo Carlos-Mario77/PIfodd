@@ -83,11 +83,11 @@ export function deleteRecipe(id) {
 };
 
 
-
-
-// export const updateRecipe = (id, payload) => {
-//     return async (dispatch) => {
-//         const response = await axios.put(`/recipe/${id}`, payload);
-//         return dispatch({ type: UPDATE_ACTIVITY, payload: response.data });
-//     };
-// };
+//Modifica las recetas creadas
+export const updateRecipe = (id, payload) => {
+    console.log(payload, "actualizar")
+    return async (dispatch) => {
+        const response = await axios.put(`http://localhost:3001/recipes/${id}`, payload);
+        return dispatch({ type: 'UPDATE_ACTIVITY', payload: response.data });
+    };
+};

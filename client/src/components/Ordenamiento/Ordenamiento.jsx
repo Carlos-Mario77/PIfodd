@@ -24,7 +24,7 @@ export default function Ordenamiento(){
     return(
         <div className='containerOrdenamiento'>
             <label className=''>Ordenar: </label>
-            <select className='selectOrdenamiento' onChange={e => orderBy(e)}>
+            <select className='selectOrdenamiento' onChange={ e => orderBy(e) }>
                 <option value="select">Seleccionar</option>
                 <option value="Ascendente">A - Z</option>
                 <option value="Descendente">Z - A</option>

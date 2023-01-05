@@ -9,9 +9,10 @@ export default function Home() {
 
     function handlerFilterDiets(e){
         e.preventDefault();
-        dispatch(filterByDiet(e.target.value))
+        dispatch(filterByDiet(e.target.value));
     };
 
+    
     return (
         <div className='containerDiets'>
             <label>Select your diets </label>

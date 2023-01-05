@@ -21,7 +21,7 @@ const typesDiets = [
 
 router.get("/", async (req, res) => {
     try {
-        typesDiets.map((type) => {                  //Mapeo 'typesDiets', done 'type' representa cada dieta del array
+        typesDiets.map((type) => {                  //Mapeo 'typesDiets', donde 'type' representa cada dieta del array
             Diet.findOrCreate({                     //En 'Diet' busca o crea
                 where: { name: type }               //Donde a la propiedad 'name' se le asigna el 'type' de dieta del array
             });

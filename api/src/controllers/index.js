@@ -1,9 +1,12 @@
 const { Recipe, Diet } = require('../db');
 const axios = require('axios');
+const { API_KEY } = process.env;
 
 
 //Función que se conecta a la API
 const getApiInfo = async () => {
+    //const apiUrl = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}"&addRecipeInformation=true&number=100`);
+    //const apiUrl = await axios.get(`https://spoonacular.com/food-api/docs#Authentication?apiKey=${API_KEY}"&addRecipeInformation=true&number=100`);
     const apiUrl = await axios.get('https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5');
     const apiInfo = await apiUrl.data.results.map(recipe => {
         return {
@@ -36,7 +39,7 @@ const getDbInfo = async () => {
 };
 
 
-//Funcío que unir la respuesta de la API con la unión de tablas de la DB
+//Funcío que une la respuesta de la API con la unión de tablas de la DB
 const getAllRecipes = async () => {
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();

@@ -87,7 +87,7 @@ function rootReducer (state= initialState, action) {
                 ...state,
                 diets: action.payload
             };            
-        case 'POST_RECIPES':     //El post no hace nada xq voy a crearlo en una ruta nueva
+        case 'POST_RECIPES':     //El post no hace nada, pero se debe de poner
             return {
                 ...state
             };

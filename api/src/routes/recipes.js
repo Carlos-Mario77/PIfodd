@@ -80,7 +80,7 @@ router.post('/', async (req, res) => {
 });
 //Hice un GET a http://localhost:3001/recipes
 //Luego un GET a http://localhost:3001/diets
-//Hice un POST a http://localhost:3001/recipes con: { "name": "Carne asada", "summary": "Carne asada para los chicos", "instructions": "1- Comprar la carne, 2- Cortar la carne, 3- Salar la carne, 4- Servir la carne, 5- Me da pereza lavar la loza", "health_Score":"20", "image":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.recepedia.com%2Fes-mx%2Freceta%2Fcarne%2F109068-carne-asada%2F&psig=AOvVaw15SXx71aMDiTMfAAck3lEX&ust=1670358666826000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDW44mp4_sCFQAAAAAdAAAAABAE", "diets": "Primal" }
+//Hice un POST a http://localhost:3001/recipes con: { "name": "Carne asada", "summary": "Carne asada asada para la familia", "instructions": "1- Comprar la carne, 2- Cortar la carne, 3- Salar la carne, 4- Servir la carne, 5- Me da pereza lavar la loza", "health_Score":"20", "image":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.recepedia.com%2Fes-mx%2Freceta%2Fcarne%2F109068-carne-asada%2F&psig=AOvVaw15SXx71aMDiTMfAAck3lEX&ust=1670358666826000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMDW44mp4_sCFQAAAAAdAAAAABAE", "diets": "Primal" }
 
 
 
@@ -118,7 +118,7 @@ router.put('/:id', async function(req, res, next) {
         },
         {where: {id: receta.id}}
       )
-        return res.send(result)
+        return res.send(result);
     }
     catch (error) {
         next(error);
