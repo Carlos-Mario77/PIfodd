@@ -53,13 +53,6 @@ export default function Home() {
         dispatch(getdiets());
     }, [dispatch]);
 
-    //
-    // useEffect (() => {
-    //     if (recipeCreateId) {
-    //         dispatch(getRecipesIdOne(recipeCreateId));
-    //     }  console.log('Ensayo segundo useEffect ' + recipeCreateId);
-    // }, [recipeCreateId]);
-
 
     //Handler para resetear todos los filtros y demás
     function handlerClick(e) {                                                                      //7mo

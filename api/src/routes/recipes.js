@@ -50,17 +50,17 @@ router.get('/:id', async (req, res) => {
 
 
 
-const findOrCreateType = async (diets) => {
+const findOrCreateDiets = async (diets) => {
     try {
-        let typesCreate = await diets.map(async (e) => {
+        let dietsCreate = await diets.map(async (e) => {
             return Diet.findOrCreate({
                 where: {
                     name: e.toString()
                 },
             });
         });
-        let typesDb = await Promise.all(typesCreate);
-        return typesDb;
+        let dietsDb = await Promise.all(dietsCreate); //[diet1,diet2]
+        return dietsDb;
     } catch (error) {
         throw new Error(error.message);
     }
@@ -79,7 +79,7 @@ router.post('/', async (req, res) => {
             createdInDb
         }); //Creamos la receta
 
-        let dietsDb = await findOrCreateType(diets);
+        let dietsDb = await findOrCreateDiets(diets);
         await dietsDb.forEach((e) => {
             newRecipe.addDiet(e[0]);
         });
