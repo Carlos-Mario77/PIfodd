@@ -54,7 +54,9 @@ function rootReducer (state= initialState, action) {
                 recipes: ordenar()
             }
         case 'ORDER_BY_SCORE':
+         
             function orderByPob(a, b){
+              
                 if (a.health_Score < b.health_Score){
                     return 1;
                 }
@@ -63,7 +65,8 @@ function rootReducer (state= initialState, action) {
                 }
                 return 0;
             }
-            function orderPopulation() {
+            function orderScore() {
+        
                 if (action.payload === 'Mayor'){
                     return [...state.recipes.sort(orderByPob)]
                 }
@@ -73,29 +76,32 @@ function rootReducer (state= initialState, action) {
             }
             return{
                 ...state,
-                allRecipes: orderPopulation()
+                recipes: orderScore()
             }
 
 
-        case 'FILTER_BY_CUISINE':
-            //funcrion
-            function filterCuisine() {
-                if (action.payload === 'Chinese'){
-                    return [...state.recipes].filter((e) => e.cuisines.includes(action.payload))
-                }
-                if (action.payload === 'Asian'){
-                    return [...state.recipes].filter((e) => e.cuisines.includes(action.payload))
-                }
-            }
-            return {
-                ...state,
-                recipes: filterCuisine(),
-            };
+        // case 'FILTER_BY_CUISINE':
+        //     //funcrion
+        //     function filterCuisine() {
+        //         if (action.payload === 'Chinese'){
+        //             return [...state.recipes].filter((e) => e.cuisines.includes(action.payload))
+        //         }
+        //         if (action.payload === 'Asian'){
+        //             return [...state.recipes].filter((e) => e.cuisines.includes(action.payload))
+        //         }
+        //     }
+        //     return {
+        //         ...state,
+        //         recipes: filterCuisine(),
+        //     };
 
 
         case 'FILTER_BY_DIET':
-            const allRecipes = state.allRecipes;        //Este es el respaldo para no hacer un filtro sobre lo filtrado
-            let filtered = null;
+            const allRecipes = state.allRecipes;
+            let filtered = null
+          console.log(allRecipes)
+            //Este es el respaldo para no hacer un filtro sobre lo filtrado
+           
             if (action.payload === "All") {
               return {
                 ...state,
@@ -106,13 +112,44 @@ function rootReducer (state= initialState, action) {
                 filtered = allRecipes.filter((e) => e.cuisines.includes(action.payload));
             }
             else{
-               filtered = allRecipes.filter((e) => e.diets.includes(action.payload));
-              //const filtered = allRecipes.filter((e) => !e.createdInDB && e.diets.includes(action.payload));
+              
+               filtered = allRecipes.filter((e) => !e.createdInDB && e.diets.includes(action.payload));
             }
             return {
                 ...state,
                 recipes: filtered,
             };
+
+
+
+            // case 'FILTER_BY_DIET':
+            //     const allRecipes = state.recipes;        //Este es el respaldo para no hacer un filtro sobre lo filtrado
+            //     console.log(allRecipes)
+            //     let filtered = null;
+            //     if (action.payload === "All") {
+            //       return {
+            //         ...state,
+            //         recipes: allRecipes,
+            //       };
+            //     }
+            //     // else if (action.payload === "Chinese" || action.payload === "Asian"){
+            //     //     filtered = allRecipes.filter((e) => e.cuisines.includes(action.payload));
+            //     // }
+            //     else{
+            //        //filtered = allRecipes.filter((e) => e.diets.includes(action.payload));
+            //       ////const filtered = allRecipes.filter((e) => !e.createdInDB && e.diets.includes(action.payload));
+            //     }
+            //     return {
+            //         ...state,
+            //         recipes: filtered,
+            //     };
+
+
+
+
+
+
+
             
         case 'GET_DIETS':
             return {

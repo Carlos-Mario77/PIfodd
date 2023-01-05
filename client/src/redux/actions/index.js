@@ -5,7 +5,7 @@ import axios from 'axios';
 export function getRecipes(){
     return async function (dispatch) {
         const json = await axios.get('http://localhost:3001/recipes');
-        //console.log(json)           //Este console.log me imprime en consola las 100 recetas del Back --> SI FUNCIONA
+        //console.log(json.data)           //Este console.log me imprime en consola las 100 recetas del Back --> SI FUNCIONA
         return dispatch({ type: 'GET_RECIPES', payload: json.data });
     };
 };
@@ -45,6 +45,7 @@ export function orderByNames(order){
 
 //Ordena las recetas por healt score
 export function orderByHealthScore(order){
+    
     return{ type: 'ORDER_BY_SCORE', payload: order };
 };
 
@@ -60,6 +61,7 @@ export function filterByCuisines(order){
 
 //Filtra por dietas cuando se selecciona alguna
 export const filterByDiet = (payload) =>{
+    console.log('filterByDiet '+ payload)
     return { type: 'FILTER_BY_DIET', payload: payload }
 };
 
@@ -68,7 +70,6 @@ export const filterByDiet = (payload) =>{
 export function getdiets(){                           
     return async function (dispatch) {
         const info = await axios.get('http://localhost:3001/diets');
-        console.log(info);
         return dispatch({ type: 'GET_DIETS', payload: info.data });
     };
 };
@@ -77,9 +78,7 @@ export function getdiets(){
 //Crea las recetas en la DB
 export function postRecipes(payload){                     //Se pasa un payload que es el vr a crear en la DB
     return async function (dispatch) {
-
         const response = await axios.post('http://localhost:3001/recipes', payload);    //En la ruta queremos hacer el post de payload, por eso se pasa
-        console.log("En este punto (linea 71) la receta ya se creo");
         dispatch({ type: 'RELOAD_RECIPES', payload: payload.id });        //Pedir la nueva receta porque en este momento, ya se tuve que crear en la DB con el post, el payload tiene todos los datos del estado que crea la receta, pero solo me quedo con el 'id' para buscarlo
         return response;                                    //No se usa el dispatch en las rutas tipo post
     };
@@ -88,7 +87,6 @@ export function postRecipes(payload){                     //Se pasa un payload q
 
 //Elimina las recetas creadas
 export function deleteRecipe(id) {
-    console.log(id);
     return async function (dispatch) {
       const response = await axios.delete(`http://localhost:3001/recipes/${id}`);
       return dispatch({ type: 'DELETE_RECIPE', payload: response.data });
@@ -98,7 +96,6 @@ export function deleteRecipe(id) {
 
 //Modifica las recetas creadas
 export const updateRecipe = (id, payload) => {
-    console.log(payload, "actualizar")
     return async (dispatch) => {
         const response = await axios.put(`http://localhost:3001/recipes/${id}`, payload);
         return dispatch({ type: 'UPDATE_RECIPE', payload: response.data });

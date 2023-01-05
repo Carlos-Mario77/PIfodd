@@ -10,7 +10,6 @@ import './Searchbar.css';
 export default function Searchbar() {
     const dispatch = useDispatch();
     const [ name, setName ] = useState('');
-    console.log('Consulta de ' + name);
 
     //Guardamos lo que el usuario digite en el input, se guarda en el estado local,y se despacha con el handlerSubitmi
     function handlerInputChange(e) {

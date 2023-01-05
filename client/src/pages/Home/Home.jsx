@@ -19,14 +19,15 @@ export default function Home() {
     //const navigate = useNavigate();
     const dispatch = useDispatch();                                                                 //1ro
     const allRecipes = useSelector((state) => state.recipes);                                       //Estado donde se guardan todas las recetas
+
     //const recipeCreateId = useSelector((state) => state.reloadRecipeOne);                                       //Estado donde se guarda el nombre de laa nueva receta creada
 
     //Estados locales para el paginado
     const [ recipesPage, setCurrentPage ] = useState(1);                                            //Estado inicial en 1 donde empieza el paginado
-    console.log(recipesPage + ' Página actual');
+    //console.log(recipesPage + ' Página actual');
     const [ recipesPerPage ] = useState(9);                                                         //Recetas por páginas indicados
-    const indexOfLastRecipe = recipesPage * recipesPerPage;
-    const indexOfFirstRecipe= indexOfLastRecipe - recipesPerPage;
+    const indexOfLastRecipe = recipesPage * recipesPerPage;                                         //Calcuamos el índice de la última receta de la página
+    const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;                                  //Calcuamos el índice de la primer receta de la página
     const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
     const paginado = (pageNumber) => {                                                              //Fn que modifica el estado 'recipesPage' con el evento que genera el componente 'Paginado'
@@ -34,7 +35,7 @@ export default function Home() {
     };
 
     const end = Math.ceil(allRecipes.length / recipesPerPage);
-    console.log(end + ' Página final');
+    //console.log(end + ' Página final');
 
     //Next Page
     function handlerNext(e) {
@@ -99,6 +100,7 @@ export default function Home() {
 
             <div className='containerCardHome1'>
                 {currentRecipes?.map((el) => {
+          
                     return (
                         <div className='containerCardHome' key={ el.id }>
                             <Link to={'/detail/' + el.id} style={{ textDecoration: 'none' }} >
