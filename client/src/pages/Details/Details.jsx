@@ -15,7 +15,7 @@ export default function Details() {
 
     useEffect(() => {
         dispatch(getRecipesDetails(id));
-    }, [dispatch, id]);
+    }, [ dispatch, id ]);
 
 
     return (
@@ -38,13 +38,14 @@ export default function Details() {
                                 <p className="parrafoDetails">{ details[0].health_Score }</p>
                             </div>
 
-                            <Link to = {`/actualizar/${id}`}>
-                                <button className = "botonActualizar">Actualizar</button>
-                            </Link>
-
-                            <Link to = "/home">
-                                <button className = "botonDetails">Volver</button>
-                            </Link>
+                            <div className="botonesDetails">
+                                <Link to = {`/actualizar/${id}`}>
+                                    <button className = "botonActualizar">Actualizar</button>
+                                </Link>
+                                <Link to = "/home">
+                                    <button className = "botonDetails">Volver</button>
+                                </Link>
+                            </div>
                         </div>
 
                         <div className="Detail2">

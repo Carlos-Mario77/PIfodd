@@ -79,7 +79,7 @@ export default function RecipesCreate() {
         //Es para enviar el formulario cuando se le de click al botón
         e.preventDefault();                             //Como es un botón que enviará algo, recarga todo el formulario, con esto inpedimos que suceda eso
         dispatch(postRecipes(input));                   //Despachamos la fn de la action que crea el personaje en la DB, pasamos todo lo contenido en el estado 'input'
-        alert('Receta creada.')                         //Enviamos un mensaje de alguna manera que le indique que el personaje fue creado
+        alert('Receta creada.');                        //Enviamos un mensaje de alguna manera que le indique que el personaje fue creado
         setInput({
             name: '',
             summary: '',

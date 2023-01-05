@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateRecipe } from '../../redux/actions/index';
 import BackTotopButton from "../../components/scroll/BackTotopButton";      //Scroll bar ejemplo 2
-// import './CreateRecipes.css';
 
 
 function validate (input) {                                                 //Función validadora, el 'input' es el Local State
