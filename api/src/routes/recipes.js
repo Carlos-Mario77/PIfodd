@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         else {
             res.status(200).send(recipesTotal);
         }
-    }    
+    }
     catch (error) {
         //res.status(404).send('No se logró traer tu receta solicitada.');
         throw new Error('No se logró traer tu receta solicitada.' + error.message);

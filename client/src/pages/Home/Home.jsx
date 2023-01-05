@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes } from '../../redux/actions/index';
+import { getRecipes,  } from '../../redux/actions/index';//getRecipesIdOne
 import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 import Searchbar from "../../components/Searchbar/Searchbar";
@@ -18,7 +18,8 @@ import './Home.css';
 export default function Home() {
     //const navigate = useNavigate();
     const dispatch = useDispatch();                                                                 //1ro
-    const allRecipes = useSelector((state) => state.recipes);                                       //2do
+    const allRecipes = useSelector((state) => state.recipes);                                       //Estado donde se guardan todas las recetas
+    //const recipeCreateId = useSelector((state) => state.reloadRecipeOne);                                       //Estado donde se guarda el nombre de laa nueva receta creada
 
     //Estados locales para el paginado
     const [ recipesPage, setCurrentPage ] = useState(1);                                            //Estado inicial en 1 donde empieza el paginado
@@ -31,7 +32,6 @@ export default function Home() {
     const paginado = (pageNumber) => {                                                              //Fn que modifica el estado 'recipesPage' con el evento que genera el componente 'Paginado'
         setCurrentPage(pageNumber);
     };
-
 
     const end = Math.ceil(allRecipes.length / recipesPerPage);
     console.log(end + ' Página final');
@@ -50,7 +50,16 @@ export default function Home() {
     //Carga todas las recetas al montarse el componente
     useEffect (() => {                                                                              //3ro                 //Cuando se monte el componente, traerá todas las recetas del state de Redux
         dispatch(getRecipes());                                                                     //Este dispatch es lo mismo que hacer el mapStateToProps
+       
     }, [dispatch]);
+
+    //
+    // useEffect (() => {
+    //     if (recipeCreateId) {
+    //         dispatch(getRecipesIdOne(recipeCreateId));
+    //     }  console.log('Ensayo segundo useEffect ' + recipeCreateId);
+    // }, [recipeCreateId]);
+
 
     //Handler para resetear todos los filtros y demás
     function handlerClick(e) {                                                                      //7mo
@@ -64,10 +73,6 @@ export default function Home() {
         dispatch(deleteRecipe(idDelete));                                                           //Despachamos el 'id' para la 'action type' que elimina
         window.location.reload();                                                                   //Recarga la página cuando se elimina la receta
     };
-
-    // const handleModificar = () =>{
-    //   navigate("/modificate");
-    // };
 
 
     return (
@@ -104,7 +109,7 @@ export default function Home() {
                     return (
                         <div className='containerCardHome' key={ el.id }>
                             <Link to={'/detail/' + el.id} style={{ textDecoration: 'none' }} >
-                                <Card name={ el.name } image={ el.image } diets={ el.diets } />
+                                <Card name={ el.name } image={ el.image } diets={ el.diets } cuisines={ el.cuisines }/>
                             </Link>
 
                             {/* Muestra el boton para modificar*/}

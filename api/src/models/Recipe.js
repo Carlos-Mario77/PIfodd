@@ -30,6 +30,9 @@ module.exports = (sequelize) => {
     diets: {
       type: DataTypes.STRING,
     },
+    cuisines: {
+      type: DataTypes.STRING,
+    },
     createdInDb: {
       type: DataTypes.BOOLEAN,
       defaultValue: true

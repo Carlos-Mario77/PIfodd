@@ -5,11 +5,12 @@ import './Diets.css';
 
 
 export default function Home() {
-    const dispatch = useDispatch();   
+    const dispatch = useDispatch();
 
     function handlerFilterDiets(e){
         e.preventDefault();
         dispatch(filterByDiet(e.target.value));
+        console.log(e.target.value);
     };
 
     
@@ -28,6 +29,9 @@ export default function Home() {
                 <option value="primal">Primal</option>
                 <option value="low fodmap">Low Fodmap</option>
                 <option value="whole 30">Whole30</option>
+
+                <option value="Chinese">Chinese</option>
+                <option value="Asian">Asian</option>
             </select>
         </div>
     );

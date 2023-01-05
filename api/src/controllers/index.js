@@ -18,7 +18,8 @@ const getApiInfo = async () => {
             : ["No existen instrucciones para esta receta."],
             health_Score: recipe.healthScore,                                                           //puntaje de salud
             image: recipe.image,                                                                        //imagen
-            diets: recipe.diets                                                                         //dietas
+            diets: recipe.diets.join(', '),                                                                         //dietas
+            cuisines: recipe.cuisines.join(', ')                                                                         //dietas
         };
     });
     return apiInfo;
