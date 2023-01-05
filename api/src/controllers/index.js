@@ -13,9 +13,9 @@ const getApiInfo = async () => {
             id: recipe.id,                                                                              //id
             name: recipe.title,                                                                         //nombre
             summary: recipe.summary.split("<b>").join(" ").split("</b>").join(" ").split("<a href=").join("\n").split("</a>").join("\n").split(">").join("\n"),//resumen
-            instructions: recipe.analyzedInstructions[0]                                                //paso a paso
-            ? recipe.analyzedInstructions[0].steps.map((recipe, i) => `${i + 1}: ${recipe.step}`)
-            : ["No existen instrucciones para esta receta."],
+            instructions: recipe.analyzedInstructions[0] ? 
+            recipe.analyzedInstructions[0].steps.map((recipe, i) => `${i + 1}: ${recipe.step}`) : 
+            ["No existen instrucciones para esta receta."],
             health_Score: recipe.healthScore,                                                           //puntaje de salud
             image: recipe.image,                                                                        //imagen
             diets: recipe.diets.join(', '),                                                                         //dietas

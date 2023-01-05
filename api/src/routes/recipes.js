@@ -50,6 +50,22 @@ router.get('/:id', async (req, res) => {
 
 
 
+const findOrCreateType = async (diets) => {
+    try {
+        let typesCreate = await diets.map(async (e) => {
+            return Diet.findOrCreate({
+                where: {
+                    name: e.toString()
+                },
+            });
+        });
+        let typesDb = await Promise.all(typesCreate);
+        return typesDb;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
+
 //Crea una receta en la DB
 router.post('/', async (req, res) => {
     try {
@@ -60,18 +76,14 @@ router.post('/', async (req, res) => {
             instructions, 
             health_Score, 
             image,
-            diets,
             createdInDb
         }); //Creamos la receta
-        
-        const dietsDb = await Diet.findAll({//Dentro de 'Diet', que busque y encuentre todas las 'diets' que coincidan con la pasada por body
-            where:{
-                name: diets
-            }
+
+        let dietsDb = await findOrCreateType(diets);
+        await dietsDb.forEach((e) => {
+            newRecipe.addDiet(e[0]);
         });
-        console.log(dietsDb);
-        newRecipe.addDiet(dietsDb);
-       
+    
         res.status(200).json("Receta creada");
     } catch (error) {
         //res.status(404).send('No se logró crear tu receta.');

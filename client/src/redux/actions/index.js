@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 //Trae todas las recetas cuando se monta la 'Home'
 export function getRecipes(){
     return async function (dispatch) {
@@ -8,16 +9,6 @@ export function getRecipes(){
         return dispatch({ type: 'GET_RECIPES', payload: json.data });
     };
 };
-
-
-//Trae todas las recetas cuando se monta la 'Home'
-// export function getRecipesIdOne(id){
-//     return async function (dispatch) {
-//         const json = await axios.get(`http://localhost:3001/recipes/${id}`);
-         //console.log(json)           //Este console.log me imprime en consola las 100 recetas del Back --> SI FUNCIONA
-//         return dispatch({ type: 'GET_RECIPES_ID_ONE', payload: json.data });    //Despacho la action buscando por el id de la nueva receta creada con todos sus datos
-//     };
-// };
 
 
 //Trae las recetas cuando se buscan en la Searchbar
@@ -58,16 +49,13 @@ export function orderByHealthScore(order){
 };
 
 
-
-
+/*----------------------------------------------------------------------*/
 //Filtra por tipo de cocina
 export function filterByCuisines(order){
     console.log('Tipo de cocina de la action: '+ order)
     return{ type: 'FILTER_BY_CUISINE', payload: order };
-};
-
-
-
+}
+/*----------------------------------------------------------------------*/;
 
 
 //Filtra por dietas cuando se selecciona alguna
@@ -80,7 +68,7 @@ export const filterByDiet = (payload) =>{
 export function getdiets(){                           
     return async function (dispatch) {
         const info = await axios.get('http://localhost:3001/diets');
-        console.log(info)
+        console.log(info);
         return dispatch({ type: 'GET_DIETS', payload: info.data });
     };
 };
@@ -89,6 +77,7 @@ export function getdiets(){
 //Crea las recetas en la DB
 export function postRecipes(payload){                     //Se pasa un payload que es el vr a crear en la DB
     return async function (dispatch) {
+
         const response = await axios.post('http://localhost:3001/recipes', payload);    //En la ruta queremos hacer el post de payload, por eso se pasa
         console.log("En este punto (linea 71) la receta ya se creo");
         dispatch({ type: 'RELOAD_RECIPES', payload: payload.id });        //Pedir la nueva receta porque en este momento, ya se tuve que crear en la DB con el post, el payload tiene todos los datos del estado que crea la receta, pero solo me quedo con el 'id' para buscarlo

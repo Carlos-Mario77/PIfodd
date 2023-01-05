@@ -1,0 +1,50 @@
+[
+  {
+    "id": "e6563629-35d7-4f08-ac78-40d0cc5bd064",
+    "name": "Vegetarian",
+    "createdAt": "2023-01-05T07:06:14.571Z",
+    "updatedAt": "2023-01-05T07:06:14.571Z"
+  },
+  {
+    "id": "3e579a84-ab82-48eb-b5b5-8abef66eb0fe",
+    "name": "Ketogenic",
+    "createdAt": "2023-01-05T07:06:14.574Z",
+    "updatedAt": "2023-01-05T07:06:14.574Z"
+  },
+  {
+    "id": "bea8100e-b859-49af-80f1-1f26ee832fd3",
+    "name": "Vegan",
+    "createdAt": "2023-01-05T07:06:14.577Z",
+    "updatedAt": "2023-01-05T07:06:14.577Z"
+  },
+  {
+    "id": "9c5879fc-e990-4824-b3cb-3bc330758187",
+    "name": "Pescatarian",
+    "createdAt": "2023-01-05T07:06:14.605Z",
+    "updatedAt": "2023-01-05T07:06:14.605Z"
+  },
+  {
+    "id": "9e6b463f-1296-47b9-b950-00db0c3dac3a",
+    "name": "Paleo",
+    "createdAt": "2023-01-05T07:06:14.607Z",
+    "updatedAt": "2023-01-05T07:06:14.607Z"
+  },
+  {
+    "id": "bc869103-e075-4335-99ac-d3cc47658de4",
+    "name": "Primal",
+    "createdAt": "2023-01-05T07:06:14.609Z",
+    "updatedAt": "2023-01-05T07:06:14.609Z"
+  },
+  {
+    "id": "c4db5d04-f7ce-4258-81c2-8905f6fb2f92",
+    "name": "Lacto Ovo Vegetarian",
+    "createdAt": "2023-01-05T07:06:14.572Z",
+    "updatedAt": "2023-01-05T07:06:14.572Z"
+  },
+  {
+    "id": "bf18a044-cc7a-4641-a8f4-c61ac953ee51",
+    "name": "Gluten Free",
+    "createdAt": "2023-01-05T07:06:14.575Z",
+    "updatedAt": "2023-01-05T07:06:14.575Z"
+  }
+]

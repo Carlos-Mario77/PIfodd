@@ -67,11 +67,10 @@ export default function RecipesCreate() {
         if (e.target.checked) {                          //Si hay checked de diets
             setInput({
                 ...input,                                //Traemos todo lo que hasta el momento está guardado en el input
-                diets: e.target.value                    //Y seteamos el status con el e.target.value
+                diets: [ ...input.diets, e.target.value ]//Y seteamos el status con el e.target.value
             });
         };
     };
-
 
     //Fn para enviar el formulario cuando damos click en el botón enviar
     function handlerSubmit(e) {  

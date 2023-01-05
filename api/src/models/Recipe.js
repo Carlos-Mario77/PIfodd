@@ -27,9 +27,6 @@ module.exports = (sequelize) => {
     image: {                                //imagen
       type: DataTypes.STRING
     },
-    diets: {
-      type: DataTypes.STRING,
-    },
     cuisines: {
       type: DataTypes.STRING,
     },
@@ -37,5 +34,5 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       defaultValue: true
     }
-  });
+  }, { timestamps: false });
 };

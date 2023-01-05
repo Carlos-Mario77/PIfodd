@@ -119,6 +119,7 @@ function rootReducer (state= initialState, action) {
                 ...state,
                 diets: action.payload
             };
+
         case 'RELOAD_RECIPES':
             return {
                 ...state,

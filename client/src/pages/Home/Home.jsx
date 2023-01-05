@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes,  } from '../../redux/actions/index';//getRecipesIdOne
+import { getRecipes, getdiets } from '../../redux/actions/index';
 import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 import Searchbar from "../../components/Searchbar/Searchbar";
@@ -50,7 +50,7 @@ export default function Home() {
     //Carga todas las recetas al montarse el componente
     useEffect (() => {                                                                              //3ro                 //Cuando se monte el componente, traerá todas las recetas del state de Redux
         dispatch(getRecipes());                                                                     //Este dispatch es lo mismo que hacer el mapStateToProps
-       
+        dispatch(getdiets());
     }, [dispatch]);
 
     //
