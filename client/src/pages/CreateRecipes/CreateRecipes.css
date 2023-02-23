@@ -1,7 +1,7 @@
 .containerCreateRecipes {
-    color: wheat;
+    color: white;
     min-height: 100vh;
-    background-image: url(../../../public/assets/12.jpg);
+    background-image: url(../../assets/12.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -136,7 +136,7 @@
 }
 
 .labelCreateRecipesSummary {
-    color: wheat;
+    color: white;
     font-size: 20px;
 }
 

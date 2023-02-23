@@ -1,11 +1,44 @@
-.containerOrdenamiento {
-    color: wheat;
+.ordenamiento {
+    color: white;
+    width: 500px;
 }
 
-.selectOrdenamiento {
-    color: #4f000b;
-    height: 25px;
-    width: 150px;
-    background: #eae2b7;
-    border-radius: 5px;
+.container-Ordenamiento {
+    border: 1px solid #edede9;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+.container-Ordenamiento h1 {
+    letter-spacing: 2px;
+    color: #457b9d;
+    font-size: 35px;
+}
+.ordenamiento-Options {
+    /* border: 1px solid red; */
+    gap: 15px;
+    display: flex;
+}
+.buttonOrdenamiento {
+    width: 200px;
+    height: 60px;
+    background: transparent;
+    border: 1px solid #dce1de;
+    border-left: 5px solid black;
+    transition: 300ms all ease;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+.buttonOrdenamiento:hover {
+    cursor: pointer;
+    background: #49a078;
+    color: white;
+    border-left: 5px solid black;
+}
+.active3 {
+    background: #ffc300;
+    color: white;
 }

@@ -1,15 +1,10 @@
 .containerHome {
     min-height: 100vh;
-    background-image: url(../../../public/assets/7.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    box-sizing: border-box;
+    background: white;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-
 .menuHome {
     width: 100%;
     display: flex;
@@ -17,23 +12,24 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 10px 30px;
-    background: rgba(120,0,0, 0.65);
+    background: rgba(0, 0, 0, 0.8);
 }
-
-.iconoHome {
-    color: wheat;
-    font-size: 50px;
-    width: 100px;
-    margin: 0 0 0 50px;
+.buttonRset {
+    width: 490px;
+    height: 50px;
     border: none;
-    border-radius: 6px;
-    background: transparent;
-    cursor: pointer;
-    transition: 300ms;
+    background: #4c956c;
+    border-radius: 5px;
+    color: white;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 300ms all ease;
 }
-
-.iconoHome:hover {
-    color: #faedcd;
+.buttonRset:hover {
+    cursor: pointer;
+    background: #2c6e49;
+    transform: scale(1.02);
 }
 
 
@@ -41,18 +37,29 @@
 .containerCardHome1 {
     /* border: 5px solid red; */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    margin: 220px 0 0 0;
 }
 
+.containerCards {
+    /* border: 1px solid yellow; */
+    grid-column: 1 / 2;
+}
+.container-CuisinesDiets {
+    /* border: 1px solid teal; */
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 50px;
+}
 .containerCardHome {
     /* border: 1px solid green; */
-    margin: 50px 15px;
-    border-radius: 20px;
-    width: 300px;
-    height: 400px;
-    background: rgba(79,0,11, 0.5);
-    padding: 30px 0;
-    box-sizing: border-box;
+    border-radius: 10px;
+    width: 600px;
+    height: 260px;
+    margin: 0 0 20px 0;
     transition: 300ms;
 }
 
@@ -93,22 +100,20 @@
 
 .botonCrearRecataHome {
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
-    width: 135px;
+    width: 490px;
     height: 50px;
-    margin: 20px 5px 20px 0;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     text-decoration: none;
-    background: #780000;
-    grid-column: 1/2;
+    background: #2667ff;
     transition: 300ms;
 }
 
 .botonCrearRecataHome:hover {
     color: white;
-    background: #0a0908;
+    background: #1d3557;
     cursor: pointer;
 }
 
@@ -151,7 +156,6 @@
 }
 
 .next:hover, .prev:hover {
-    color: wheat;
     background: #4f000b;
 }
 

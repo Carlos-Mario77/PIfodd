@@ -32,7 +32,7 @@ export default function LandingPage () {
             <h1 className="otros">I'm <span className='menssage' ref={el}></span></h1>
 
             <div className="container2LandingPage">
-                <h1 className="tituloLandingPage">Deli Foods...</h1>
+                <h1 className="tituloLandingPage">I Foods...</h1>
                 <p className="recetaLandingPage">+ de 100 Recetas</p>
                 <p className="textoLandingPage">11 Tipos de dietas</p>
                 <Link to='/home' style={{ textDecoration: 'none' }}>

@@ -5,10 +5,9 @@
   
 .containerPaginado {
     /* border: 1px solid chocolate; */
-    margin: 50px 0 0 0;
+    margin: 30px 0;
     width: 90%;
 }
-  
 
 .numberPaginado {
     list-style: none;
@@ -17,24 +16,24 @@
 }
   
 .botonPaginado.active {
-    background-color: #4f000b;
-    color: wheat;
+    background: #03071e;
+    color: white;
 }
   
 .botonPaginado {
-    color: #4f000b;
+    color: #f8f9fa;
     font-size: 25px;
     font-weight: bold;
     width: 60px;
     height: 45px;
     margin: 10px 10px;
     border: none;
-    border-radius: 5px;
-    background: wheat;
+    border-radius: 3px;
+    background: #457b9d;
     transition: 300ms;
 }
   
 .botonPaginado:hover {
-    color: wheat;
-    background: #4f000b;
+    color: white;
+    background: #03071e;
 }

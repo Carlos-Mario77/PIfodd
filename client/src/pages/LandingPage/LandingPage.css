@@ -23,7 +23,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(../../../public/assets/6.jpg);
+    background-image: url(../../assets/6.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

@@ -1,9 +1,9 @@
 .detailContainer {
-    color: wheat;
+    color: white;
     max-width: 90%;
     min-width: 100vw;
     min-height: 100vh;
-    background-image: url(../../../public/assets/9.jpg);
+    background-image: url(../../assets/9.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -39,9 +39,9 @@
 }
 
 .glassDetails1 {
-    color: wheat;
+    color: white;
     font-size: 16px;
-    min-height: 100px;
+    min-height: 00px;
     margin: 20px 0;
     padding-top: 10px;
     border-radius: 10px;
@@ -72,7 +72,7 @@
 }
 
 .botonDetails:hover {
-    color: wheat;
+    color: white;
     background: #4f000b;
     cursor: pointer;
 }
@@ -90,7 +90,7 @@
     margin: 20px 0;
     border-radius: 10px;
     font-size: 16px;
-    color: wheat;
+    color: white;
     background: rgba(79,0,11, 0.7);
 }
 
@@ -115,7 +115,7 @@
 }
 
 .botonActualizar:hover {
-    color: wheat;
+    color: white;
     background: #4f000b;
     cursor: pointer;
 }
@@ -194,3 +194,5 @@
         min-height: 100px;
     }
 }
+
+

@@ -1,36 +1,37 @@
-import React from 'react';
-import { orderByNames, orderByHealthScore } from '../../redux/actions/index';
-import { useDispatch,  } from 'react-redux';
-import './Ordenamiento.css';
+import React, { useState } from "react";
+import { orderByNames, orderByHealthScore } from "../../redux/actions/index";
+import { useDispatch } from "react-redux";
+import "./Ordenamiento.css";
 
 
-export default function Ordenamiento(){
-    const dispatch = useDispatch();                             //Despacha la acción sin usar el connect
+export default function Ordenamiento() {
+    const dispatch = useDispatch();
+    const [active, setActive] = useState("Ascendente");
 
     const orderBy = (e) => {
         e.preventDefault();
-        //console.log(e.target.value);        
-        if (e.target.value === "select"){
-            return
-        }
-        else if (e.target.value === "Ascendente" || e.target.value === "Descendente") {
+        if (e.target.value === "Ascendente" || e.target.value === "Descendente") {
             dispatch(orderByNames(e.target.value));
-        }
-        else if (e.target.value === "Mayor" || e.target.value === "Menor") {
+        } else if (e.target.value === "Mayor" || e.target.value === "Menor") {
             dispatch(orderByHealthScore(e.target.value));
         }
+        setActive(e.target.value); // Actualizar el estado "active" con el valor del botón seleccionado
     };
 
-    return(
-        <div className='containerOrdenamiento'>
-            <label className=''>Ordenar: </label>
-            <select className='selectOrdenamiento' onChange={ e => orderBy(e) }>
-                <option value="select">Seleccionar</option>
-                <option value="Ascendente">A - Z</option>
-                <option value="Descendente">Z - A</option>
-                <option value="Mayor">High health score</option>
-                <option value="Menor">Low health score</option>
-            </select>
+
+    return (
+        <div className="ordenamiento">
+            <div className="container-Ordenamiento">
+                <h1>Order by:</h1>
+                <div className="ordenamiento-Options">
+                    <button className={`buttonOrdenamiento ${active === "Ascendente" ? "active3" : ""}`} value="Ascendente" onClick={orderBy} >A - Z</button>
+                    <button className={`buttonOrdenamiento ${active === "Descendente" ? "active3" : ""}`} value="Descendente" onClick={orderBy} >Z - A</button>
+                </div>
+                <div className="ordenamiento-Options">
+                    <button className={`buttonOrdenamiento ${active === "Mayor" ? "active3" : ""}`} value="Mayor" onClick={orderBy} >High score</button>
+                    <button className={`buttonOrdenamiento ${active === "Menor" ? "active3" : ""}`} value="Menor" onClick={orderBy}>Low score</button>
+                </div>
+            </div>
         </div>
     );
 };

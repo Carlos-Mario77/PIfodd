@@ -1,0 +1,28 @@
+.preInicio {
+    background: #e54a38;
+    width: 650px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 550px;
+    gap: 40px;
+}
+.preInicio h1 {
+    font-size: 35px;
+    color: white;
+}
+.preInicio-Button {
+    border: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    background: #f1b121;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.preInicio-Button:hover {
+    cursor: pointer;
+}

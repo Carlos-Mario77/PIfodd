@@ -1,12 +1,38 @@
-.containerDiets {
-    color: wheat;
-    margin: 0 10px;
+.diets {
+    border: 1px solid #edede9;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
 }
-
-.selectDiets {
-    color: #4f000b;
-    height: 25px;
-    width: 150px;
-    background: #eae2b7;
-    border-radius: 5px;
+.diets h1 {
+    letter-spacing: 2px;
+    color: #457b9d;
+    font-size: 35px;
+}
+.diets-Options {
+    gap: 15px;
+    display: flex;
+}
+.buttonDiets {
+    width: 200px;
+    height: 60px;
+    background: transparent;
+    border: 1px solid #dce1de;
+    border-left: 5px solid gold;
+    transition: 300ms all ease;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+.buttonDiets:hover {
+    cursor: pointer;
+    background: #49a078;
+    color: white;
+    border-left: 5px solid black;
+}
+.active {
+    background: #2667ff;
+    color: white;
 }

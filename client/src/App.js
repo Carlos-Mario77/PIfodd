@@ -5,6 +5,8 @@ import Home from './pages/Home/Home';
 import Detail from './pages/Details/Details';
 import CreateRecipes from './pages/CreateRecipes/CreateRecipes';
 import ActualizarRecetas from './pages/ActializarRecetas/ActualizarRecetas';
+import Error from "./components/404NotFound/index";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -17,7 +19,9 @@ function App() {
                 <Route path='/detail/:id' element={ <Detail /> } />
                 <Route path='/createrecipes' element={ <CreateRecipes /> } />
                 <Route path='/actualizar/:id' element={ <ActualizarRecetas /> } />
+                <Route path="*" element={<Error />} />
             </Routes>
+            <Footer />
         </div>
     );
 };

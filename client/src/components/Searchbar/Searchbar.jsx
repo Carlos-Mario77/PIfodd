@@ -33,7 +33,7 @@ export default function Searchbar() {
 
     return (
         <div className="containerSearchbar">
-            <input className="inputSearchbar" type="text" placeholder='Buscar...' onChange={(e) => handlerInputChange(e)} value={name}/>
+            <input className="inputSearchbar" type="text" placeholder='Buscar...' onChange={(e) => handlerInputChange(e)} value={name}  style={{border:'1px solid #dce1de',  }}/>
             <button className="botonSearchbar"  type='submit' onClick={(e) => handlerSubmit(e)} ><FontAwesomeIcon icon={ faMagnifyingGlass }/></button>
         </div>
     );

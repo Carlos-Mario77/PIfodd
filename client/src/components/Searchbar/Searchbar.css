@@ -1,23 +1,24 @@
-.inputSearchbar {
-    color: #4f000b;
-    height: 25px;
-    width: 120px;
-    margin: 0 0 0 5px;
-    background: #eae2b7;
-    border-Radius: 5px;
-    border: none;
-}
-
 .containerSearchbar {
-    margin: 0 40px 0 40px;
-    background: #eae2b7;
-    border-radius: 5px;
+    /* border: 1px solid #dce1de; */
+    width: 490px;
+    height: 50px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputSearchbar {
+    height: 48px;
+    width: 480px;
+    padding: 0 0 0 10px;
+    border: none;
+    font-size: 22px;
 }
 
 .botonSearchbar {
-    color: black;
+    color: #212529;
     margin: 0 5px;
-    font-size: 16px;
+    font-size: 30px;
     border: none;
     border-radius: 50%;
     background: transparent;

@@ -1,0 +1,58 @@
+.card {
+    /* border: 3px solid red; */
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.container-ImageCard {
+    /* border: 3px solid green; */
+    height: 260px;
+    grid-column: 1 / 2;
+}
+.imageCard {
+    height: 260px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    object-fit: cover;
+}
+.container-tituloCard {
+    /* border: 3px solid green; */
+    grid-column: 2 / 3;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    background: #fefae0;
+}
+.container-others {
+    /* border: 1px solid red; */
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e54a38;
+    padding: 0 5px;
+    color: white;
+}
+.containerCardDescription {
+    /* border: 1px solid red; */
+    margin: 0 0 15px 0;
+}
+.containerfavorites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 0 0;
+}
+.iconFav {
+    color: #e54a38;
+    font-size: 20px;
+}

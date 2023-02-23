@@ -1,0 +1,26 @@
+.news {
+    /* border: 1px solid blue; */
+    width: 500px;
+}
+.news h1 {
+    letter-spacing: 2px;
+    color: #457b9d;
+    font-size: 35px;
+    margin: 0 0 20px 0;
+}
+.container-News {
+    border: 1px solid #edede9;
+    height: 550px;
+    width: 500px;
+    margin: 0 0 30px 0;
+    overflow: hidden;
+}
+.container-News img {
+    width: 500px;
+    object-fit: cover;
+}
+.container-News a {
+    text-decoration: none;
+    color: #287ff9;
+
+}
