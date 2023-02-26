@@ -1,5 +1,7 @@
 .cuisine {
     border: 1px solid #edede9;
+    width: 550px;
+    background: white;
     color: white;
     margin: 50px 0 0 0;
     display: flex;
@@ -19,5 +21,5 @@
 }
 .active2 {
     background: red;
-    color: white;
+    color: black;
 }

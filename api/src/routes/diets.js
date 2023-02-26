@@ -6,16 +6,16 @@ const router = Router();
 
 //Guardo en un array los tipos de dietas de la página 'spoonacular'
 const typesDiets = [
-  "Gluten Free",
-  "Ketogenic",
-  "Vegetarian",
-  "Lacto Ovo Vegetarian",
-  "Vegan",
-  "Pescatarian",
-  "Paleo",
-  "Primal",
-  "Low Fodmap",
-  "Whole30",
+  "gluten free",
+  "ketogenic",
+  "vegetarian",
+  "lacto ovo vegetarian",
+  "vegan",
+  "pescatarian",
+  "paleo",
+  "primal",
+  "low fodmap",
+  "whole30",
 ];
 
 

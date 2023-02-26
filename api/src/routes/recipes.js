@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 
 
 
+
 //Filtra las recetas por id pasado por params
 router.get('/:id', async (req, res) => {
     try {
@@ -60,6 +61,7 @@ const findOrCreateDiets = async (diets) => {
             });
         });
         let dietsDb = await Promise.all(dietsCreate); //[diet1,diet2]
+        console.log('Se creo la dieta')
         return dietsDb;
     } catch (error) {
         throw new Error(error.message);
@@ -69,18 +71,22 @@ const findOrCreateDiets = async (diets) => {
 //Crea una receta en la DB
 router.post('/', async (req, res) => {
     try {
-        const { name, summary, instructions, health_Score, image, createdInDb, diets } = req.body;
+        const { name, health_Score, time, servings, image, diets, cuisines, ingredients, summary, instructions, createdInDb } = req.body;
         const newRecipe = await Recipe.create({
             name,
+            health_Score, 
+            time,
+            servings,
+            image,
+            cuisines,
+            ingredients,
             summary,
             instructions, 
-            health_Score, 
-            image,
             createdInDb
         }); //Creamos la receta
 
         let dietsDb = await findOrCreateDiets(diets);
-        await dietsDb.forEach((e) => {
+        dietsDb.forEach((e) => {
             newRecipe.addDiet(e[0]);
         });
     
@@ -122,11 +128,15 @@ router.put('/:id', async function(req, res, next) {
         {
             id: receta.id,
             name: receta.name,
-            summary: receta.summary,
             health_Score: receta.health_Score,
-            instructions: receta.instructions,
+            time: receta.time,
+            servings: receta.servings,
             image: receta.image,
-            diets: receta.diets
+            diets: receta.diets,
+            cuisines: receta.cuisines,
+            ingredients: receta.ingredients,
+            summary: receta.summary,
+            instructions: receta.instructions            
         },
         {where: {id: receta.id}}
       )

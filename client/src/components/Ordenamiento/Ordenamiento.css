@@ -1,36 +1,33 @@
 .ordenamiento {
-    color: white;
-    width: 500px;
-}
-
-.container-Ordenamiento {
-    border: 1px solid #edede9;
-    color: white;
+    border-top: 1px solid #edede9;
+    background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     padding: 20px 0;
 }
-.container-Ordenamiento h1 {
+.ordenamiento h1 {
     letter-spacing: 2px;
     color: #457b9d;
     font-size: 35px;
 }
 .ordenamiento-Options {
-    /* border: 1px solid red; */
-    gap: 15px;
+    gap: 30px;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 .buttonOrdenamiento {
-    width: 200px;
-    height: 60px;
+    /* border: 1px solid #dce1de; */
+    height: 50px;
+    width: 140px;
+    font-size: 16px;
+    letter-spacing: 2px;
     background: transparent;
-    border: 1px solid #dce1de;
     border-left: 5px solid black;
     transition: 300ms all ease;
-    font-size: 17px;
-    letter-spacing: 2px;
 }
 .buttonOrdenamiento:hover {
     cursor: pointer;

@@ -1,6 +1,6 @@
 .containerSearchbar {
     /* border: 1px solid #dce1de; */
-    width: 490px;
+    width: 400px;
     height: 50px;
     border-radius: 3px;
     display: flex;
@@ -9,12 +9,11 @@
 }
 .inputSearchbar {
     height: 48px;
-    width: 480px;
+    width: 390px;
     padding: 0 0 0 10px;
     border: none;
     font-size: 22px;
 }
-
 .botonSearchbar {
     color: #212529;
     margin: 0 5px;
@@ -24,16 +23,13 @@
     background: transparent;
     transition: 300ms;
 }
-.botonSearchbar:hover {
-    color: #4f000b;
-    border: none;
-    cursor: pointer;
-}
 
-.selectSearchbar {
-    color: #4f000b;
-    height: 25px;
-    width: 150px;
-    background: #eae2b7;
-    border-radius: 10px;
+
+@media screen and (max-width: 410px) {
+    .containerSearchbar {
+        width: 300px;
+    }
+    .inputSearchbar {
+        width: 260px;
+    }
 }

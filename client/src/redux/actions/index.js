@@ -48,6 +48,19 @@ export function orderByHealthScore(order){
 };
 
 
+//Ordena las recetas por puntaje de favoritos
+export function orderByFavorites(order){
+    return{ type: 'ORDER_BY_FAVORITES', payload: order };
+};
+
+
+//Ordena las recetas por tiempo
+export function orderByTime(order){
+    return{ type: 'ORDER_BY_TIME', payload: order };
+};
+
+
+
 //Filtra por cocina y dietas cuando se selecciona alguna
 export const filterByDiet = (payload) =>{
     return { type: 'FILTER_BY_CUISINE_AND_DIET', payload: payload }
@@ -67,6 +80,7 @@ export function getdiets(){
 export function postRecipes(payload){                                                               //Se pasa un payload que es el vr a crear en la DB
     return async function (dispatch) {
         const response = await axios.post('http://localhost:3001/recipes', payload);                //En la ruta queremos hacer el post de payload, por eso se pasa
+        window.location.href = 'http://localhost:3000/home';
         dispatch({ type: 'RELOAD_RECIPES', payload: payload.id });                                  //Pedir la nueva receta porque en este momento, ya se tuve que crear en la DB con el post, el payload tiene todos los datos del estado que crea la receta, pero solo me quedo con el 'id' para buscarlo
         return response;                                                                            //No se usa el dispatch en las rutas tipo post
     };
@@ -86,6 +100,7 @@ export function deleteRecipe(id) {
 export const updateRecipe = (id, payload) => {
     return async (dispatch) => {
         const response = await axios.put(`http://localhost:3001/recipes/${id}`, payload);
+        window.location.href = 'http://localhost:3000/home';
         return dispatch({ type: 'UPDATE_RECIPE', payload: response.data });
     };
 };

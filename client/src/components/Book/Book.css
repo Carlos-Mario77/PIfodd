@@ -1,0 +1,51 @@
+.container-Books {
+    /* border: 1px solid green; */
+    width: 100%;
+    background: #CCE2E0;
+    padding: 200px 0 0 0;
+    position: relative;
+    margin: -5px 0 0 0;
+}
+.carouselBooks {
+    /* border: 1px solid red; */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.carouselBooks h1 {
+    letter-spacing: 2px;
+    color: #284b63;
+}
+.carouselWrapBooks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 0 0;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.books {
+    /* border: 1px solid green; */
+    height: 300px;
+    transition: 300ms all ease;
+}
+.books:hover {
+    transform: scale(1.02);
+}
+.books img {
+    height: 90%;
+}
+
+/*---------------(500px)---------------*/
+@media screen and (max-width: 500px) {
+    .container-Books {
+        padding: 130px 0 0 0;
+    }
+
+}

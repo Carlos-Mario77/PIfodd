@@ -1,5 +1,7 @@
 .App {
   text-align: center; /*Centra todos los elementos de la aplicación*/
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /*Customización del scroll bar*/

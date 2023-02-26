@@ -1,0 +1,122 @@
+.multiItemCarousel {
+    /* border: 1px solid red; */
+    margin: -20px 0 0 0;
+    height: 440px;
+    max-width: 1200px;
+    background: white;
+}
+.multiItemCarousel h1 {
+    letter-spacing: 2px;
+    color: #457b9d;
+    font-size: 35px;
+    margin: 20px 0 0 0;
+}
+.caruse {
+    /* border: 1px solid red; */
+    width: 260px;
+    height: 300px;
+    margin: 20px;
+    padding: 10px;
+}
+.buttonCuisine {/*-----Define el tamaño de la caja-----*/
+    border: 1px solid #dce1de;
+    width: 220px;
+    height: 280px;
+    background: transparent;
+    border-radius: 5px;
+    transition: 300ms all ease;
+    font-size: 16px;
+    letter-spacing: 2px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.buttonCuisine:hover {
+    cursor: pointer;
+    background: #b7e4c7;
+    color: #284b63;
+}
+.container-ImgTitCuisine {
+    /* border: 1px solid red; */
+    width: 250px;
+    height: 280px;
+    pointer-events: none;
+}
+.imagen-container {
+    /* border: 1px solid red; */
+    height: 180px;
+    overflow: hidden;
+    object-fit: cover;
+}
+.imagen-AllCuisine {
+    width: 170px;
+    transform: translate(40px, 10px);
+}
+.imagen-AfricanCuisine {
+    width: 240px;
+    transform: translate(0px, 10px);
+}
+.imagen-AmericanCuisine {
+    width: 260px;
+    transform: translate(0px, 30px);
+}
+.imagen-AsianCuisine {
+    width: 240px;
+    transform: translate(5px, 30px);
+}
+.imagen-CajunCuisine {
+    width: 220px;
+    transform: translate(15px, 30px);
+}
+.imagen-ChineseCuisine {
+    width: 170px;
+    transform: translate(40px, 20px);
+}
+.imagen-EuropeanCuisine {
+    width: 240px;
+    transform: translate(0px, 15px);
+}
+.imagen-IndianCuisine {
+    width: 210px;
+    transform: translate(25px, 30px);
+}
+.imagen-MiddleEasternCuisine {
+    width: 170px;
+    transform: translate(40px, 30px);
+}
+.imagen-SouthernCuisine {
+    width: 200px;
+    transform: translate(30px, 25px);
+}
+.title-container {
+    /* border: 1px solid blue; */
+    padding: 20px;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title-container h3 {
+    letter-spacing: 3px;
+    color: #284b63;
+}
+.cuisine {
+    border: 1px solid #edede9;
+    width: 550px;
+    background: white;
+    color: white;
+    margin: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+.active2 {
+    background: #b7e4c7;
+    color: #457b9d;
+}

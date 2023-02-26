@@ -1,21 +1,41 @@
 .containerHome {
+    /* border: 5px solid red; */
     min-height: 100vh;
-    background: white;
+    background: #F4F6F4;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.menuHome {
-    width: 100%;
+
+/*---------Filtros Reset y Ordenamiento---------*/
+.firsFilter {
+    /* border: 1px solid #edede9; */
+    border-top: 1px solid #edede9;
+    border-left: 1px solid #edede9;
+    border-right: 1px solid #edede9;
+
+    margin: -30px 0 0 0;
+    background: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    padding: 10px 30px;
-    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: space-around;
 }
-.buttonRset {
-    width: 490px;
+.container-Reset {
+    /* border: 1px solid green; */
+    height: 100%;
+    padding: 20px;
+}
+.container-ResetSearchCreate {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+}
+.buttonReset {
+    width: 400px;
     height: 50px;
     border: none;
     background: #4c956c;
@@ -26,70 +46,57 @@
     font-weight: bold;
     transition: 300ms all ease;
 }
-.buttonRset:hover {
+.buttonReset:hover {
     cursor: pointer;
     background: #2c6e49;
-    transform: scale(1.02);
 }
 
+.botonCrearRecataHome {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 400px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    background: #2667ff;
+    transition: 300ms;
+}
+.botonCrearRecataHome:hover {
+    color: white;
+    background: #1d3557;
+    cursor: pointer;
+}
 
 /*--------------------Cards--------------------*/
 .containerCardHome1 {
     /* border: 5px solid red; */
+    gap: 30px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 220px 0 0 0;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 20px 0 0 0;
 }
-
-.containerCards {
-    /* border: 1px solid yellow; */
-    grid-column: 1 / 2;
-}
-.container-CuisinesDiets {
-    /* border: 1px solid teal; */
-    grid-column: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 50px;
-}
-.containerCardHome {
-    /* border: 1px solid green; */
-    border-radius: 10px;
-    width: 600px;
-    height: 260px;
-    margin: 0 0 20px 0;
-    transition: 300ms;
-}
-
-.containerCardHome:hover{
-    cursor: pointer;
-    transform: translateY(-3%);
-}
-
 
 /*--------------------Botón Eliminar--------------------*/
-.botonEliminar {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+.button-Delete {
+    position: absolute;
+    top: 200px;
+    left: 20px;
     width: 150px;
-    height: 50px;
-    margin: 20px;
+    height: 40px;
+    background: #197278;
+    color: #f8f9fa;
+    font-size: 16px;
     border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    background: #780000;
-    transition: 300ms;
-} 
-
-.botonEliminar:hover {
-    color: white;
-    background: #0a0908;
+    border-radius: 5px;
+    margin: 10px;
+    letter-spacing: 5px;
+}
+.button-Delete:hover {
+    background: #003049;
     cursor: pointer;
 }
-
 
 /*--------------------Botones--------------------*/
 .contenedorBotonesHome {
@@ -98,68 +105,8 @@
     justify-content: space-between;
 }
 
-.botonCrearRecataHome {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    width: 490px;
-    height: 50px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    background: #2667ff;
-    transition: 300ms;
-}
 
-.botonCrearRecataHome:hover {
-    color: white;
-    background: #1d3557;
-    cursor: pointer;
-}
-
-.botonVolverLandingPage {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    width: 135px;
-    height: 50px;
-    margin: 20px 0 20px 5px;
-    border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    background: #780000;
-    grid-column: 2/3;
-    transition: 300ms;
-}
-
-.botonVolverLandingPage:hover {
-    color: white;
-    background: #0a0908;
-    cursor: pointer;
-}
-
-.prevNext {
-    margin: 40px 0 0 0;
-}
-
-.prev, .next {
-    color: #4f000b;
-    font-size: 15px;    
-    font-weight: bold;
-    width: 60px;
-    height: 45px;
-    margin: 0 100px;
-    border: none;
-    border-radius: 5px;
-    background: wheat;
-    transition: 300ms;
-}
-
-.next:hover, .prev:hover {
-    background: #4f000b;
-}
-
-
+/*--------------------Media Query--------------------*/
 @media screen and (max-width: 1000px) {
     .containerCardHome1 {
         display: grid;
@@ -167,34 +114,30 @@
     }
 }
 
-
 @media screen and (max-width: 800px) {
     .containerCardHome1 {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
+}
 
-    .contenedorBotonesHome {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
+@media screen and (max-width: 410px) {
+    .firsFilter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .buttonReset {
+        width: 300px;
+        height: 50px;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+    .botonCrearRecataHome {
+        font-size: 16px;
+        width: 300px;
+        height: 50px;
+        border-radius: 3px;
     }
 }
-
-
-/* .mi-transicion-enter {
-    opacity: 0;
-}
-  
-.mi-transicion-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
-}
-  
-.mi-transicion-exit {
-    opacity: 1;
-}
-  
-.mi-transicion-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-} */

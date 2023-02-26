@@ -9,7 +9,7 @@ import Error from "./components/404NotFound/index";
 import Footer from "./components/Footer/Footer";
 
 
-function App() {
+export default function App() {
 
     return (
         <div className="App">
@@ -25,8 +25,3 @@ function App() {
         </div>
     );
 };
-
-
-export default App;
-//import ScrollToTop from "react-scroll-to-top";                  //Scroll bar ejemplo 1, se descarga npm i react-scroll-to-top, se importa aquí y se invoca en el return como <ScrollToTop smooth color='#464EAF'/>
-//Si el "behavior: 'smooth'" no funciona, ir a 'chrome://flags/#smooth-scrolling' y seleccionar 'Enabled', esto porque Google deshabilitó esta opción

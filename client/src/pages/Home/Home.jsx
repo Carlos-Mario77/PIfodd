@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes, getdiets } from '../../redux/actions/index';
 import { Link } from "react-router-dom";
-import Landing from "../../components/Landing/Landing";
-import PreInicio from "../../components/PreInicio/PreInicio";
-import CuisinesDiets from "../../components/CuisinesDiets/CuisinesDiets";
+import Carousel from "../../components/Carousel/Carousel";
+import Books from "../../components/Book/Book";
+import CarouselCuisines from "../../components/CarouselCuisines/CarouselCuisines";
+import Diets from "../../components/Diets/Diets";
 import Card from "../../components/Cards/Cards";
-import News from "../../components/News/News";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import Ordenamiento from "../../components/Ordenamiento/Ordenamiento";
 import Paginado from "../../components/Paginado/Paginado";
@@ -21,7 +21,7 @@ export default function Home() {
 
     //Estados locales para el paginado
     const [ recipesPage, setCurrentPage ] = useState(1);
-    const [ recipesPerPage ] = useState(13);
+    const [ recipesPerPage ] = useState(12);
     const indexOfLastRecipe = recipesPage * recipesPerPage;
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
     const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
@@ -29,17 +29,6 @@ export default function Home() {
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
-
-    const end = Math.ceil(allRecipes.length / recipesPerPage);
-
-    // function handlerNext(e) {
-    //     setCurrentPage(recipesPage + 1);
-    // };
-
-    // function handlerPrev(e) {
-    //     setCurrentPage(recipesPage - 1);
-    // };
-
 
     //Carga todas las recetas al montarse el componente
     useEffect (() => {
@@ -64,39 +53,32 @@ export default function Home() {
 
     return (
         <div className="containerHome">
-            <Landing />
-            <PreInicio />  
-
-            <div className='containerCardHome1'>
-                <div className="containerCards">
-                    {currentRecipes?.map((el) => {
-                        return (
-                            <div className='containerCardHome' key={ el.id }>
-                                <Link to={'/detail/' + el.id} style={{ textDecoration: 'none' }} >
-                                    <Card name={ el.name } image={ el.image } servings={ el.servings } time={ el.time } favorites={ el.favorites }/>
-                                </Link>
-                                { el.id.toString().split("").length > 10 ? <button className="botonEliminar" value={ el.id } onClick={ e => handleDelete(e) }>Delete</button> : null }
-                            </div>
-                        );
-                    })}
-                </div>
-                <div className="container-CuisinesDiets">
-                    <div className=''>
-                        <button className='buttonRset' onClick={ (e) => { handlerClick(e) } }>RESET ALL</button>        {/*6to*/}
+            <Carousel />
+            <Books />
+            <CarouselCuisines />
+            <div className="firsFilter">
+                <div className="container-Reset">
+                    <div className="container-ResetSearchCreate">
+                        <button className='buttonReset' onClick={ (e) => { handlerClick(e) } }>RESET ALL</button>
+                        <Searchbar />
+                        <button className="botonCrearRecataHome"><Link to='/createrecipes' style={{ textDecoration: 'none', color:'white' }}>Crea tu receta!!!</Link></button>
                     </div>
-                    <Searchbar />
-                    <button className="botonCrearRecataHome"><Link to='/createrecipes' style={{ textDecoration: 'none', color:'white' }}>Crea tu receta!!!</Link></button>
-                    <Ordenamiento />
-                    <CuisinesDiets />
-                    <News />
                 </div>
+                <Ordenamiento />
             </div>
-
-            {/* <div className="prevNext">
-                {recipesPage > 1 && (<button className="prev" onClick={() => handlerPrev()}>PREV</button>)}
-                {recipesPage < end && (<button className="next" onClick={() => handlerNext()}>NEXT</button>)}
-            </div> */}
-
+            <Diets />
+            <div className='containerCardHome1'>
+                {currentRecipes?.map((el) => {
+                    return (
+                        <div key={ el.id }>
+                            <Link to={'/detail/' + el.id} style={{ textDecoration: 'none' }} >
+                                <Card name={ el.name } image={ el.image } health_Score={ el.health_Score } servings={ el.servings } time={ el.time } favorites={ el.favorites }/>
+                            </Link>
+                            { el.id.toString().split("").length > 10 ? <button className="button-Delete" value={ el.id } onClick={ e => handleDelete(e) }>Delete</button> : null }
+                        </div>
+                    );
+                })}
+            </div>
             <BackTotopButton />
             <Paginado recipesPerPage={ recipesPerPage } allRecipes={ allRecipes.length } paginado={ paginado } currentPage={ recipesPage }/>
         </div>
