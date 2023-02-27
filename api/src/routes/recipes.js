@@ -51,7 +51,8 @@ router.get('/:id', async (req, res) => {
 
 
 
-const findOrCreateDiets = async (diets) => {
+const findOrCreateDiets = async (diets) => {        //Función que permite guardar el array de diets que llega por req.body
+    console.log(diets)
     try {
         let dietsCreate = await diets.map(async (e) => {
             return Diet.findOrCreate({
@@ -61,12 +62,15 @@ const findOrCreateDiets = async (diets) => {
             });
         });
         let dietsDb = await Promise.all(dietsCreate); //[diet1,diet2]
+        console.log(dietsDb)
         console.log('Se creo la dieta')
         return dietsDb;
     } catch (error) {
         throw new Error(error.message);
     }
 };
+
+
 
 //Crea una receta en la DB
 router.post('/', async (req, res) => {
@@ -83,16 +87,14 @@ router.post('/', async (req, res) => {
             summary,
             instructions, 
             createdInDb
-        }); //Creamos la receta
+        });
 
         let dietsDb = await findOrCreateDiets(diets);
         dietsDb.forEach((e) => {
             newRecipe.addDiet(e[0]);
         });
-    
         res.status(200).json("Receta creada");
     } catch (error) {
-        //res.status(404).send('No se logró crear tu receta.');
         throw new Error('No se logró crear tu receta.' + error.message);
     }
 });

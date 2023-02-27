@@ -7,11 +7,11 @@ const { API_KEY } = process.env;
 const getApiInfo = async () => {
     const apiUrl = await axios.get('https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5');
     const apiInfo = apiUrl.data.results.map(recipe => {
-        const ingredients = new Set();
-        recipe.analyzedInstructions.forEach(instruction => {
-            instruction.steps.forEach(step => {
-                step.ingredients.forEach(ingredient => {
-                    ingredients.add(ingredient.name);
+        const ingredients = new Set();                          //new Set() crea un nuevo objeto que al llamarse el .add, le va agregando valores siempre y cuando no sean repetidos
+        recipe.analyzedInstructions.forEach(instruction => {    //Primer forEach que mapea el primer array 'analyzedInstructions' para llegar a su propiedad 'steps'
+            instruction.steps.forEach(step => {                 //Segundo forEach que mapea el segundo array 'steps' para llegar a su propiedad 'ingredients'
+                step.ingredients.forEach(ingredient => {        //Tercer forEach que mapea el tercer array 'ingredients' para llegar a su propiedad 'name'
+                    ingredients.add(ingredient.name);           //Y la propiedad 'name' la adiciona a la constante 'ingredients'
                 });
             });
         });

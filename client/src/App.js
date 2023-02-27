@@ -7,6 +7,8 @@ import CreateRecipes from './pages/CreateRecipes/CreateRecipes';
 import ActualizarRecetas from './pages/ActializarRecetas/ActualizarRecetas';
 import Error from "./components/404NotFound/index";
 import Footer from "./components/Footer/Footer";
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 
 export default function App() {

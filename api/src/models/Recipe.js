@@ -38,7 +38,6 @@ module.exports = (sequelize) => {
     ingredients: {
       type: DataTypes.STRING,
     },
-    
     createdInDb: {
       type: DataTypes.BOOLEAN,
       defaultValue: true
