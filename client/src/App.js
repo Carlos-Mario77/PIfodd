@@ -8,7 +8,7 @@ import ActualizarRecetas from './pages/ActializarRecetas/ActualizarRecetas';
 import Error from "./components/404NotFound/index";
 import Footer from "./components/Footer/Footer";
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://pi-food-production-3d02.up.railway.app/';
 
 
 export default function App() {
